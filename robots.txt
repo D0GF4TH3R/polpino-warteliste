@@ -1,3 +1,2 @@
 User-agent: *
-Allow: /
-Sitemap: https://polpino.ch/sitemap.xml
+Disallow: /
