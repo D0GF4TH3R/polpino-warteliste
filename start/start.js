@@ -2,6 +2,8 @@
 (function () {
   'use strict';
   var wurzel = document.documentElement;
+  /* Bildpfad relativ zu diesem Skript, damit die Seite unter jeder Adresse laeuft */
+  var basis = document.currentScript ? document.currentScript.src : window.location.href;
   var figur = document.querySelector('.figur');
 
   /* Auftritt: Polpino laeuft herein, schiebt die Wortmarke, danach uebernimmt die Schleife. */
@@ -22,13 +24,8 @@
       window.setTimeout(fertig, 8200);
     };
     auftritt.onerror = fertig;
-    auftritt.src = '../assets/img/start/polpino-auftritt.webp';
+    auftritt.src = new URL('../assets/img/start/polpino-auftritt.webp', basis).href;
   }
-
-  /* Anmeldeseite: Vorschau, es wird nichts gesendet. */
-  var senden = document.getElementById('senden');
-  var hinweis = document.getElementById('hinweis');
-  if (senden && hinweis) senden.addEventListener('click', function () { hinweis.hidden = false; });
 
   /* Mini-Chat: zeigt zu jedem Beispiel Auftrag und Ergebnis. */
   var chat = document.getElementById('chat');

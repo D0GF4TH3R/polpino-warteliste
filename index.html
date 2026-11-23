@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Polpino: die KI-Assistenz, die für dich telefoniert</title>
-  <meta name="description" content="Du schreibst per WhatsApp, Polpino telefoniert und meldet sich mit dem Ergebnis. Bewirb dich für die erste Testrunde: drei Wochen gratis, danach drei Monate geschenkt.">
+  <title>Polpino</title>
+  <meta name="description" content="Eine KI-Assistenz, die für dich telefoniert. Du schreibst in WhatsApp, Polpino ruft an.">
   <link rel="canonical" href="https://polpino.ch/">
   <meta name="theme-color" content="#FAFAF8">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -14,327 +14,64 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_CH">
   <meta property="og:site_name" content="Polpino">
-  <meta property="og:title" content="Polpino ruft für dich an.">
-  <meta property="og:description" content="Du schreibst per WhatsApp, Polpino telefoniert und meldet sich mit dem Ergebnis. Erste Testrunde in der Schweiz.">
-  <meta property="og:url" content="https://d0gf4th3r.github.io/polpino-warteliste/">
-  <meta property="og:image" content="https://d0gf4th3r.github.io/polpino-warteliste/assets/img/og-polpino.jpg">
+  <meta property="og:title" content="Polpino">
+  <meta property="og:description" content="Eine KI-Assistenz, die für dich telefoniert. Du schreibst in WhatsApp, Polpino ruft an.">
+  <meta property="og:url" content="https://polpino.ch/">
+  <meta property="og:image" content="https://polpino.ch/assets/img/start/og-polpino-start.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Polpino, eine lila Papierkrake, sitzt am Schreibtisch und hat einen Termin im Kalender eingetragen">
+  <meta property="og:image:alt" content="Polpino, eine lila Papierkrake mit Headset, über dem Schriftzug polpino">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="assets/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/polpino.css">
-  <script src="assets/polpino.js" defer></script>
+  <link rel="preload" href="assets/fonts/fraunces-soft-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="start/start.css">
+  <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.className = 'start';</script>
+  <noscript><style>html.start .marke { transform: none; } html.start .figur .schleife { opacity: 1; }</style></noscript>
+  <script src="start/start.js" defer></script>
 </head>
 <body>
-  <svg class="symbole" aria-hidden="true" focusable="false">
-    <symbol id="polpino" viewBox="0 0 16 14">
-      <path class="f-tinte" d="M5 0h5v1H5zM3 1h2v1H3zM10 1h2v1h-2zM2 2h1v1H2zM12 2h1v1h-1zM13 3h1v1h-1zM13 4h2v1h-2zM13 5h2v1h-2zM13 6h2v1h-2zM13 7h2v1h-2zM6 8h8v1H6zM6 9h2v1H6z"/>
-      <path class="f-lila" d="M5 1h5v1H5zM3 2h9v1H3zM2 3h11v1H2zM1 4h3v1H1zM5 4h4v1H5zM10 4h3v1h-3zM1 5h3v1H1zM5 5h4v1H5zM10 5h3v1h-3zM1 6h3v1H1zM5 6h4v1H5zM10 6h3v1h-3zM1 7h12v1H1zM1 8h5v1H1zM2 9h4v1H2zM8 9h5v1H8zM3 10h9v1H3zM2 11h11v1H2zM0 12h3v1H0zM4 12h2v1H4zM8 12h2v1H8zM11 12h3v1h-3zM1 13h2v1H1zM4 13h2v1H4zM8 13h2v1H8zM11 13h2v1h-2zM4 4h1v1H4zM9 4h1v1H9zM4 6h1v1H4zM9 6h1v1H9z"/>
-      <path class="f-tief" d="M3 12h1v1H3zM6 12h2v1H6zM10 12h1v1h-1zM4 5h1v1H4zM9 5h1v1H9z"/>
-      <path class="f-tinte f-augen" d="M4 4h1v3H4zM9 4h1v3H9z"/>
-      <path class="f-lampe" d="M6 9h1v1H6z"/>
-    </symbol>
-    <symbol id="haken" viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></symbol>
-    <symbol id="pfeil" viewBox="0 0 20 20"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
-  </svg>
-
   <a class="skip" href="#inhalt">Zum Inhalt</a>
 
   <header class="kopf">
-    <div class="wrap">
-      <a class="marke" href="./" aria-label="Polpino by aigency, Startseite">
-        <span class="marke-wort">polpino</span><span class="marke-by">by aigency</span>
-      </a>
-      <a class="knopf knopf-leise" href="#warteliste">Auf die Warteliste</a>
+    <div class="marke-zeile">
+      <div class="figur" aria-hidden="true">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcset="assets/img/start/polpino-ruhe.webp">
+          <img class="schleife" src="assets/img/start/polpino-schleife.webp" width="50" height="50" alt="">
+        </picture>
+      </div>
+      <a class="marke" href="./" aria-label="Polpino, Startseite">polpino</a>
     </div>
+    <nav class="konto" aria-label="Beta">
+      <a href="beta.html">Beta-Tester werden</a>
+    </nav>
   </header>
 
   <main id="inhalt">
-    <section class="hero" id="hero" aria-labelledby="titel">
-      <div class="wrap hero-raster">
-        <div class="hero-text">
-          <h1 id="titel">Polpino ruft<br> für dich an.</h1>
-          <p class="lead">Du schreibst per WhatsApp, Polpino telefoniert und meldet sich mit dem Ergebnis.</p>
-          <p class="hero-angebot"><span class="lampe" aria-hidden="true"></span><span>Erste Testrunde in der Schweiz: drei Wochen gratis testen, danach drei Monate geschenkt.</span></p>
-          <a class="knopf" href="#warteliste">Auf die Warteliste</a>
+    <div class="saetze">
+      <h1>Polpino ist eine KI-Assistenz, die für dich telefoniert.</h1>
+      <p>Du schreibst in WhatsApp, was zu erledigen ist. Polpino ruft an, wartet in der Warteschleife und schreibt dir das Ergebnis zurück.</p>
+      <p>Was schiebst du gerade vor dir her? <a class="bsp" href="#chat" data-frage="Zahnarzt nächste Woche, gern vormittags." data-antwort="Dienstag 10:30 bei Dr. Weber. Steht im Kalender.">Den Zahnarzttermin</a>, <a class="bsp" href="#chat" data-frage="Freitag 19:30, Tisch für vier im Da Marco." data-antwort="Reserviert auf deinen Namen. Steht im Kalender.">den Tisch für Freitag</a>, <a class="bsp" href="#chat" data-frage="Der Sanitär soll wegen dem tropfenden Hahn vorbeikommen." data-antwort="Firma Keller kommt Donnerstag zwischen 8 und 10 Uhr.">den Handwerker</a>, <a class="bsp" href="#chat" data-frage="Frag beim Internetanbieter, wann der Techniker kommt." data-antwort="22 Minuten Warteschleife. Der Techniker kommt Montag zwischen 13 und 15 Uhr.">die Hotline</a> oder <a class="bsp" href="#chat" data-frage="Coiffeur von Mittwoch auf nächste Woche schieben." data-antwort="Verschoben auf Dienstag, 17:00. Der Kalender ist angepasst.">den Coiffeur</a>?</p>
+      <p>Polpino gibt sich nie als Mensch aus, und ohne dein Ja ruft er niemanden an. Die erste Testrunde startet bald.</p>
+      <a class="weiter" href="beta.html">Beta-Tester werden <svg aria-hidden="true" width="9" height="16" viewBox="0 0 9 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1.5 3l5 5-5 5"/></svg></a>
+    </div>
+
+    <div class="chat-platz" aria-live="polite">
+      <div class="chat" id="chat" hidden>
+        <div class="chat-kopf">
+          <span class="chat-bild"><img src="assets/img/favicon.svg" width="18" height="18" alt=""></span>
+          <span class="chat-name">Polpino <span>KI-Assistenz</span></span>
+          <span class="chat-marke">Beispiel</span>
         </div>
-        <div class="buero" id="buero" aria-hidden="true">
-          <img class="b-fenster" src="assets/origami/fenster.webp" width="900" height="785" alt="" fetchpriority="high">
-          <img class="b-pflanze" src="assets/origami/pflanze.webp" width="520" height="740" alt="">
-          <img class="b-tisch" src="assets/origami/tisch.webp" width="1260" height="647" alt="">
-          <div class="b-polpino"><svg class="pp pp-buero" viewBox="-150 -60 480 230" aria-hidden="true" focusable="false">
-<image class="req-laptop" href="assets/origami/laptop.webp" x="-118" y="84" width="96" height="72"/>
-<g class="req-kalender"><image href="assets/origami/kalender.webp" x="186" y="78" width="78" height="77"/></g>
-<ellipse class="pp-schatten" cx="75" cy="152" rx="66" ry="5"/>
-<g class="pp-figur">
-<g class="arm arm-tipp"><g class="k-lila"><path class="f-b" d="M0 110h10v10h-10zM-10 110h10v10h-10zM-20 110h10v10h-10zM-30 110h10v10h-10zM-40 110h10v10h-10z"/><path class="f-o" d="M0 110h10l-5 5zM-10 110h10l-5 5zM-20 110h10l-5 5zM-30 110h10l-5 5zM-40 110h10l-5 5z"/><path class="f-l" d="M0 110l5 5l-5 5zM-10 110l5 5l-5 5zM-20 110l5 5l-5 5zM-30 110l5 5l-5 5zM-40 110l5 5l-5 5z"/><path class="f-r" d="M10 110v10l-5 -5zM0 110v10l-5 -5zM-10 110v10l-5 -5zM-20 110v10l-5 -5zM-30 110v10l-5 -5z"/><path class="f-u" d="M0 120l5 -5l5 5zM-10 120l5 -5l5 5zM-20 120l5 -5l5 5zM-30 120l5 -5l5 5zM-40 120l5 -5l5 5z"/></g></g>
-<g class="arm arm-hoerer"><g class="k-lila"><path class="f-b" d="M-10 80h10v10h-10zM-20 80h10v10h-10zM-30 80h10v10h-10zM-40 80h10v10h-10z"/><path class="f-o" d="M-10 80h10l-5 5zM-20 80h10l-5 5zM-30 80h10l-5 5zM-40 80h10l-5 5z"/><path class="f-l" d="M-10 80l5 5l-5 5zM-20 80l5 5l-5 5zM-30 80l5 5l-5 5zM-40 80l5 5l-5 5z"/><path class="f-r" d="M0 80v10l-5 -5zM-10 80v10l-5 -5zM-20 80v10l-5 -5zM-30 80v10l-5 -5z"/><path class="f-u" d="M-10 90l5 -5l5 5zM-20 90l5 -5l5 5zM-30 90l5 -5l5 5zM-40 90l5 -5l5 5z"/></g><image class="arm-ding" href="assets/origami/hoerer.webp" x="-80" y="62" width="64" height="49"/></g>
-<g class="pp-koerper"><g class="k-lila"><path class="f-b" d="M50 10h10v10h-10zM60 10h10v10h-10zM70 10h10v10h-10zM80 10h10v10h-10zM90 10h10v10h-10zM30 20h10v10h-10zM40 20h10v10h-10zM50 20h10v10h-10zM60 20h10v10h-10zM70 20h10v10h-10zM80 20h10v10h-10zM90 20h10v10h-10zM100 20h10v10h-10zM110 20h10v10h-10zM20 30h10v10h-10zM30 30h10v10h-10zM40 30h10v10h-10zM50 30h10v10h-10zM60 30h10v10h-10zM70 30h10v10h-10zM80 30h10v10h-10zM90 30h10v10h-10zM100 30h10v10h-10zM110 30h10v10h-10zM120 30h10v10h-10zM10 40h10v10h-10zM20 40h10v10h-10zM30 40h10v10h-10zM50 40h10v10h-10zM60 40h10v10h-10zM70 40h10v10h-10zM80 40h10v10h-10zM100 40h10v10h-10zM110 40h10v10h-10zM120 40h10v10h-10zM10 50h10v10h-10zM20 50h10v10h-10zM30 50h10v10h-10zM50 50h10v10h-10zM60 50h10v10h-10zM70 50h10v10h-10zM80 50h10v10h-10zM100 50h10v10h-10zM110 50h10v10h-10zM120 50h10v10h-10zM10 60h10v10h-10zM20 60h10v10h-10zM30 60h10v10h-10zM50 60h10v10h-10zM60 60h10v10h-10zM70 60h10v10h-10zM80 60h10v10h-10zM100 60h10v10h-10zM110 60h10v10h-10zM120 60h10v10h-10zM10 70h10v10h-10zM20 70h10v10h-10zM30 70h10v10h-10zM40 70h10v10h-10zM50 70h10v10h-10zM60 70h10v10h-10zM70 70h10v10h-10zM80 70h10v10h-10zM90 70h10v10h-10zM100 70h10v10h-10zM110 70h10v10h-10zM120 70h10v10h-10zM10 80h10v10h-10zM20 80h10v10h-10zM30 80h10v10h-10zM40 80h10v10h-10zM50 80h10v10h-10zM20 90h10v10h-10zM30 90h10v10h-10zM40 90h10v10h-10zM50 90h10v10h-10zM80 90h10v10h-10zM90 90h10v10h-10zM100 90h10v10h-10zM110 90h10v10h-10zM120 90h10v10h-10zM30 100h10v10h-10zM40 100h10v10h-10zM50 100h10v10h-10zM60 100h10v10h-10zM70 100h10v10h-10zM80 100h10v10h-10zM90 100h10v10h-10zM100 100h10v10h-10zM110 100h10v10h-10zM20 110h10v10h-10zM30 110h10v10h-10zM40 110h10v10h-10zM50 110h10v10h-10zM60 110h10v10h-10zM70 110h10v10h-10zM80 110h10v10h-10zM90 110h10v10h-10zM100 110h10v10h-10zM110 110h10v10h-10zM120 110h10v10h-10z"/><path class="f-o" d="M50 10h10l-5 5zM60 10h10l-5 5zM70 10h10l-5 5zM80 10h10l-5 5zM90 10h10l-5 5zM30 20h10l-5 5zM40 20h10l-5 5zM50 20h10l-5 5zM60 20h10l-5 5zM70 20h10l-5 5zM80 20h10l-5 5zM90 20h10l-5 5zM100 20h10l-5 5zM110 20h10l-5 5zM20 30h10l-5 5zM30 30h10l-5 5zM40 30h10l-5 5zM50 30h10l-5 5zM60 30h10l-5 5zM70 30h10l-5 5zM80 30h10l-5 5zM90 30h10l-5 5zM100 30h10l-5 5zM110 30h10l-5 5zM120 30h10l-5 5zM10 40h10l-5 5zM20 40h10l-5 5zM30 40h10l-5 5zM50 40h10l-5 5zM60 40h10l-5 5zM70 40h10l-5 5zM80 40h10l-5 5zM100 40h10l-5 5zM110 40h10l-5 5zM120 40h10l-5 5zM10 50h10l-5 5zM20 50h10l-5 5zM30 50h10l-5 5zM50 50h10l-5 5zM60 50h10l-5 5zM70 50h10l-5 5zM80 50h10l-5 5zM100 50h10l-5 5zM110 50h10l-5 5zM120 50h10l-5 5zM10 60h10l-5 5zM20 60h10l-5 5zM30 60h10l-5 5zM50 60h10l-5 5zM60 60h10l-5 5zM70 60h10l-5 5zM80 60h10l-5 5zM100 60h10l-5 5zM110 60h10l-5 5zM120 60h10l-5 5zM10 70h10l-5 5zM20 70h10l-5 5zM30 70h10l-5 5zM40 70h10l-5 5zM50 70h10l-5 5zM60 70h10l-5 5zM70 70h10l-5 5zM80 70h10l-5 5zM90 70h10l-5 5zM100 70h10l-5 5zM110 70h10l-5 5zM120 70h10l-5 5zM10 80h10l-5 5zM20 80h10l-5 5zM30 80h10l-5 5zM40 80h10l-5 5zM50 80h10l-5 5zM20 90h10l-5 5zM30 90h10l-5 5zM40 90h10l-5 5zM50 90h10l-5 5zM80 90h10l-5 5zM90 90h10l-5 5zM100 90h10l-5 5zM110 90h10l-5 5zM120 90h10l-5 5zM30 100h10l-5 5zM40 100h10l-5 5zM50 100h10l-5 5zM60 100h10l-5 5zM70 100h10l-5 5zM80 100h10l-5 5zM90 100h10l-5 5zM100 100h10l-5 5zM110 100h10l-5 5zM20 110h10l-5 5zM30 110h10l-5 5zM40 110h10l-5 5zM50 110h10l-5 5zM60 110h10l-5 5zM70 110h10l-5 5zM80 110h10l-5 5zM90 110h10l-5 5zM100 110h10l-5 5zM110 110h10l-5 5zM120 110h10l-5 5z"/><path class="f-l" d="M50 10l5 5l-5 5zM60 10l5 5l-5 5zM70 10l5 5l-5 5zM80 10l5 5l-5 5zM90 10l5 5l-5 5zM30 20l5 5l-5 5zM40 20l5 5l-5 5zM50 20l5 5l-5 5zM60 20l5 5l-5 5zM70 20l5 5l-5 5zM80 20l5 5l-5 5zM90 20l5 5l-5 5zM100 20l5 5l-5 5zM110 20l5 5l-5 5zM20 30l5 5l-5 5zM30 30l5 5l-5 5zM40 30l5 5l-5 5zM50 30l5 5l-5 5zM60 30l5 5l-5 5zM70 30l5 5l-5 5zM80 30l5 5l-5 5zM90 30l5 5l-5 5zM100 30l5 5l-5 5zM110 30l5 5l-5 5zM120 30l5 5l-5 5zM10 40l5 5l-5 5zM20 40l5 5l-5 5zM30 40l5 5l-5 5zM50 40l5 5l-5 5zM60 40l5 5l-5 5zM70 40l5 5l-5 5zM80 40l5 5l-5 5zM100 40l5 5l-5 5zM110 40l5 5l-5 5zM120 40l5 5l-5 5zM10 50l5 5l-5 5zM20 50l5 5l-5 5zM30 50l5 5l-5 5zM50 50l5 5l-5 5zM60 50l5 5l-5 5zM70 50l5 5l-5 5zM80 50l5 5l-5 5zM100 50l5 5l-5 5zM110 50l5 5l-5 5zM120 50l5 5l-5 5zM10 60l5 5l-5 5zM20 60l5 5l-5 5zM30 60l5 5l-5 5zM50 60l5 5l-5 5zM60 60l5 5l-5 5zM70 60l5 5l-5 5zM80 60l5 5l-5 5zM100 60l5 5l-5 5zM110 60l5 5l-5 5zM120 60l5 5l-5 5zM10 70l5 5l-5 5zM20 70l5 5l-5 5zM30 70l5 5l-5 5zM40 70l5 5l-5 5zM50 70l5 5l-5 5zM60 70l5 5l-5 5zM70 70l5 5l-5 5zM80 70l5 5l-5 5zM90 70l5 5l-5 5zM100 70l5 5l-5 5zM110 70l5 5l-5 5zM120 70l5 5l-5 5zM10 80l5 5l-5 5zM20 80l5 5l-5 5zM30 80l5 5l-5 5zM40 80l5 5l-5 5zM50 80l5 5l-5 5zM20 90l5 5l-5 5zM30 90l5 5l-5 5zM40 90l5 5l-5 5zM50 90l5 5l-5 5zM80 90l5 5l-5 5zM90 90l5 5l-5 5zM100 90l5 5l-5 5zM110 90l5 5l-5 5zM120 90l5 5l-5 5zM30 100l5 5l-5 5zM40 100l5 5l-5 5zM50 100l5 5l-5 5zM60 100l5 5l-5 5zM70 100l5 5l-5 5zM80 100l5 5l-5 5zM90 100l5 5l-5 5zM100 100l5 5l-5 5zM110 100l5 5l-5 5zM20 110l5 5l-5 5zM30 110l5 5l-5 5zM40 110l5 5l-5 5zM50 110l5 5l-5 5zM60 110l5 5l-5 5zM70 110l5 5l-5 5zM80 110l5 5l-5 5zM90 110l5 5l-5 5zM100 110l5 5l-5 5zM110 110l5 5l-5 5zM120 110l5 5l-5 5z"/><path class="f-r" d="M60 10v10l-5 -5zM70 10v10l-5 -5zM80 10v10l-5 -5zM90 10v10l-5 -5zM100 10v10l-5 -5zM40 20v10l-5 -5zM50 20v10l-5 -5zM60 20v10l-5 -5zM70 20v10l-5 -5zM80 20v10l-5 -5zM90 20v10l-5 -5zM100 20v10l-5 -5zM110 20v10l-5 -5zM120 20v10l-5 -5zM30 30v10l-5 -5zM40 30v10l-5 -5zM50 30v10l-5 -5zM60 30v10l-5 -5zM70 30v10l-5 -5zM80 30v10l-5 -5zM90 30v10l-5 -5zM100 30v10l-5 -5zM110 30v10l-5 -5zM120 30v10l-5 -5zM130 30v10l-5 -5zM20 40v10l-5 -5zM30 40v10l-5 -5zM40 40v10l-5 -5zM60 40v10l-5 -5zM70 40v10l-5 -5zM80 40v10l-5 -5zM90 40v10l-5 -5zM110 40v10l-5 -5zM120 40v10l-5 -5zM130 40v10l-5 -5zM20 50v10l-5 -5zM30 50v10l-5 -5zM40 50v10l-5 -5zM60 50v10l-5 -5zM70 50v10l-5 -5zM80 50v10l-5 -5zM90 50v10l-5 -5zM110 50v10l-5 -5zM120 50v10l-5 -5zM130 50v10l-5 -5zM20 60v10l-5 -5zM30 60v10l-5 -5zM40 60v10l-5 -5zM60 60v10l-5 -5zM70 60v10l-5 -5zM80 60v10l-5 -5zM90 60v10l-5 -5zM110 60v10l-5 -5zM120 60v10l-5 -5zM130 60v10l-5 -5zM20 70v10l-5 -5zM30 70v10l-5 -5zM40 70v10l-5 -5zM50 70v10l-5 -5zM60 70v10l-5 -5zM70 70v10l-5 -5zM80 70v10l-5 -5zM90 70v10l-5 -5zM100 70v10l-5 -5zM110 70v10l-5 -5zM120 70v10l-5 -5zM130 70v10l-5 -5zM20 80v10l-5 -5zM30 80v10l-5 -5zM40 80v10l-5 -5zM50 80v10l-5 -5zM60 80v10l-5 -5zM30 90v10l-5 -5zM40 90v10l-5 -5zM50 90v10l-5 -5zM60 90v10l-5 -5zM90 90v10l-5 -5zM100 90v10l-5 -5zM110 90v10l-5 -5zM120 90v10l-5 -5zM130 90v10l-5 -5zM40 100v10l-5 -5zM50 100v10l-5 -5zM60 100v10l-5 -5zM70 100v10l-5 -5zM80 100v10l-5 -5zM90 100v10l-5 -5zM100 100v10l-5 -5zM110 100v10l-5 -5zM120 100v10l-5 -5zM30 110v10l-5 -5zM40 110v10l-5 -5zM50 110v10l-5 -5zM60 110v10l-5 -5zM70 110v10l-5 -5zM80 110v10l-5 -5zM90 110v10l-5 -5zM100 110v10l-5 -5zM110 110v10l-5 -5zM120 110v10l-5 -5zM130 110v10l-5 -5z"/><path class="f-u" d="M50 20l5 -5l5 5zM60 20l5 -5l5 5zM70 20l5 -5l5 5zM80 20l5 -5l5 5zM90 20l5 -5l5 5zM30 30l5 -5l5 5zM40 30l5 -5l5 5zM50 30l5 -5l5 5zM60 30l5 -5l5 5zM70 30l5 -5l5 5zM80 30l5 -5l5 5zM90 30l5 -5l5 5zM100 30l5 -5l5 5zM110 30l5 -5l5 5zM20 40l5 -5l5 5zM30 40l5 -5l5 5zM40 40l5 -5l5 5zM50 40l5 -5l5 5zM60 40l5 -5l5 5zM70 40l5 -5l5 5zM80 40l5 -5l5 5zM90 40l5 -5l5 5zM100 40l5 -5l5 5zM110 40l5 -5l5 5zM120 40l5 -5l5 5zM10 50l5 -5l5 5zM20 50l5 -5l5 5zM30 50l5 -5l5 5zM50 50l5 -5l5 5zM60 50l5 -5l5 5zM70 50l5 -5l5 5zM80 50l5 -5l5 5zM100 50l5 -5l5 5zM110 50l5 -5l5 5zM120 50l5 -5l5 5zM10 60l5 -5l5 5zM20 60l5 -5l5 5zM30 60l5 -5l5 5zM50 60l5 -5l5 5zM60 60l5 -5l5 5zM70 60l5 -5l5 5zM80 60l5 -5l5 5zM100 60l5 -5l5 5zM110 60l5 -5l5 5zM120 60l5 -5l5 5zM10 70l5 -5l5 5zM20 70l5 -5l5 5zM30 70l5 -5l5 5zM50 70l5 -5l5 5zM60 70l5 -5l5 5zM70 70l5 -5l5 5zM80 70l5 -5l5 5zM100 70l5 -5l5 5zM110 70l5 -5l5 5zM120 70l5 -5l5 5zM10 80l5 -5l5 5zM20 80l5 -5l5 5zM30 80l5 -5l5 5zM40 80l5 -5l5 5zM50 80l5 -5l5 5zM60 80l5 -5l5 5zM70 80l5 -5l5 5zM80 80l5 -5l5 5zM90 80l5 -5l5 5zM100 80l5 -5l5 5zM110 80l5 -5l5 5zM120 80l5 -5l5 5zM10 90l5 -5l5 5zM20 90l5 -5l5 5zM30 90l5 -5l5 5zM40 90l5 -5l5 5zM50 90l5 -5l5 5zM20 100l5 -5l5 5zM30 100l5 -5l5 5zM40 100l5 -5l5 5zM50 100l5 -5l5 5zM80 100l5 -5l5 5zM90 100l5 -5l5 5zM100 100l5 -5l5 5zM110 100l5 -5l5 5zM120 100l5 -5l5 5zM30 110l5 -5l5 5zM40 110l5 -5l5 5zM50 110l5 -5l5 5zM60 110l5 -5l5 5zM70 110l5 -5l5 5zM80 110l5 -5l5 5zM90 110l5 -5l5 5zM100 110l5 -5l5 5zM110 110l5 -5l5 5zM20 120l5 -5l5 5zM30 120l5 -5l5 5zM40 120l5 -5l5 5zM50 120l5 -5l5 5zM60 120l5 -5l5 5zM70 120l5 -5l5 5zM80 120l5 -5l5 5zM90 120l5 -5l5 5zM100 120l5 -5l5 5zM110 120l5 -5l5 5zM120 120l5 -5l5 5z"/></g><g class="k-tinte"><path class="f-b" d="M50 0h10v10h-10zM60 0h10v10h-10zM70 0h10v10h-10zM80 0h10v10h-10zM90 0h10v10h-10zM30 10h10v10h-10zM40 10h10v10h-10zM100 10h10v10h-10zM110 10h10v10h-10zM20 20h10v10h-10zM120 20h10v10h-10zM130 30h10v10h-10zM130 40h10v10h-10zM140 40h10v10h-10zM130 50h10v10h-10zM140 50h10v10h-10zM130 60h10v10h-10zM140 60h10v10h-10zM130 70h10v10h-10zM140 70h10v10h-10zM60 80h10v10h-10zM70 80h10v10h-10zM80 80h10v10h-10zM90 80h10v10h-10zM100 80h10v10h-10zM110 80h10v10h-10zM120 80h10v10h-10zM130 80h10v10h-10zM60 90h10v10h-10zM70 90h10v10h-10z"/><path class="f-o" d="M50 0h10l-5 5zM60 0h10l-5 5zM70 0h10l-5 5zM80 0h10l-5 5zM90 0h10l-5 5zM30 10h10l-5 5zM40 10h10l-5 5zM100 10h10l-5 5zM110 10h10l-5 5zM20 20h10l-5 5zM120 20h10l-5 5zM130 30h10l-5 5zM130 40h10l-5 5zM140 40h10l-5 5zM130 50h10l-5 5zM140 50h10l-5 5zM130 60h10l-5 5zM140 60h10l-5 5zM130 70h10l-5 5zM140 70h10l-5 5zM60 80h10l-5 5zM70 80h10l-5 5zM80 80h10l-5 5zM90 80h10l-5 5zM100 80h10l-5 5zM110 80h10l-5 5zM120 80h10l-5 5zM130 80h10l-5 5zM60 90h10l-5 5zM70 90h10l-5 5z"/><path class="f-l" d="M50 0l5 5l-5 5zM60 0l5 5l-5 5zM70 0l5 5l-5 5zM80 0l5 5l-5 5zM90 0l5 5l-5 5zM30 10l5 5l-5 5zM40 10l5 5l-5 5zM100 10l5 5l-5 5zM110 10l5 5l-5 5zM20 20l5 5l-5 5zM120 20l5 5l-5 5zM130 30l5 5l-5 5zM130 40l5 5l-5 5zM140 40l5 5l-5 5zM130 50l5 5l-5 5zM140 50l5 5l-5 5zM130 60l5 5l-5 5zM140 60l5 5l-5 5zM130 70l5 5l-5 5zM140 70l5 5l-5 5zM60 80l5 5l-5 5zM70 80l5 5l-5 5zM80 80l5 5l-5 5zM90 80l5 5l-5 5zM100 80l5 5l-5 5zM110 80l5 5l-5 5zM120 80l5 5l-5 5zM130 80l5 5l-5 5zM60 90l5 5l-5 5zM70 90l5 5l-5 5z"/><path class="f-r" d="M60 0v10l-5 -5zM70 0v10l-5 -5zM80 0v10l-5 -5zM90 0v10l-5 -5zM100 0v10l-5 -5zM40 10v10l-5 -5zM50 10v10l-5 -5zM110 10v10l-5 -5zM120 10v10l-5 -5zM30 20v10l-5 -5zM130 20v10l-5 -5zM140 30v10l-5 -5zM140 40v10l-5 -5zM150 40v10l-5 -5zM140 50v10l-5 -5zM150 50v10l-5 -5zM140 60v10l-5 -5zM150 60v10l-5 -5zM140 70v10l-5 -5zM150 70v10l-5 -5zM70 80v10l-5 -5zM80 80v10l-5 -5zM90 80v10l-5 -5zM100 80v10l-5 -5zM110 80v10l-5 -5zM120 80v10l-5 -5zM130 80v10l-5 -5zM140 80v10l-5 -5zM70 90v10l-5 -5zM80 90v10l-5 -5z"/><path class="f-u" d="M50 10l5 -5l5 5zM60 10l5 -5l5 5zM70 10l5 -5l5 5zM80 10l5 -5l5 5zM90 10l5 -5l5 5zM30 20l5 -5l5 5zM40 20l5 -5l5 5zM100 20l5 -5l5 5zM110 20l5 -5l5 5zM20 30l5 -5l5 5zM120 30l5 -5l5 5zM130 40l5 -5l5 5zM130 50l5 -5l5 5zM140 50l5 -5l5 5zM130 60l5 -5l5 5zM140 60l5 -5l5 5zM130 70l5 -5l5 5zM140 70l5 -5l5 5zM130 80l5 -5l5 5zM140 80l5 -5l5 5zM60 90l5 -5l5 5zM70 90l5 -5l5 5zM80 90l5 -5l5 5zM90 90l5 -5l5 5zM100 90l5 -5l5 5zM110 90l5 -5l5 5zM120 90l5 -5l5 5zM130 90l5 -5l5 5zM60 100l5 -5l5 5zM70 100l5 -5l5 5z"/></g><g class="pp-lider"><g class="k-lila"><path class="f-b" d="M40 40h10v10h-10zM40 60h10v10h-10zM90 40h10v10h-10zM90 60h10v10h-10z"/><path class="f-o" d="M40 40h10l-5 5zM40 60h10l-5 5zM90 40h10l-5 5zM90 60h10l-5 5z"/><path class="f-l" d="M40 40l5 5l-5 5zM40 60l5 5l-5 5zM90 40l5 5l-5 5zM90 60l5 5l-5 5z"/><path class="f-r" d="M50 40v10l-5 -5zM50 60v10l-5 -5zM100 40v10l-5 -5zM100 60v10l-5 -5z"/><path class="f-u" d="M40 50l5 -5l5 5zM40 70l5 -5l5 5zM90 50l5 -5l5 5zM90 70l5 -5l5 5z"/></g><g class="k-tief"><path class="f-b" d="M40 50h10v10h-10zM90 50h10v10h-10z"/><path class="f-o" d="M40 50h10l-5 5zM90 50h10l-5 5z"/><path class="f-l" d="M40 50l5 5l-5 5zM90 50l5 5l-5 5z"/><path class="f-r" d="M50 50v10l-5 -5zM100 50v10l-5 -5z"/><path class="f-u" d="M40 60l5 -5l5 5zM90 60l5 -5l5 5z"/></g></g><g class="pp-augen"><g class="k-tinte"><path class="f-b" d="M40 40h10v10h-10zM90 40h10v10h-10zM40 50h10v10h-10zM90 50h10v10h-10zM40 60h10v10h-10zM90 60h10v10h-10z"/><path class="f-o" d="M40 40h10l-5 5zM90 40h10l-5 5zM40 50h10l-5 5zM90 50h10l-5 5zM40 60h10l-5 5zM90 60h10l-5 5z"/><path class="f-l" d="M40 40l5 5l-5 5zM90 40l5 5l-5 5zM40 50l5 5l-5 5zM90 50l5 5l-5 5zM40 60l5 5l-5 5zM90 60l5 5l-5 5z"/><path class="f-r" d="M50 40v10l-5 -5zM100 40v10l-5 -5zM50 50v10l-5 -5zM100 50v10l-5 -5zM50 60v10l-5 -5zM100 60v10l-5 -5z"/><path class="f-u" d="M40 50l5 -5l5 5zM90 50l5 -5l5 5zM40 60l5 -5l5 5zM90 60l5 -5l5 5zM40 70l5 -5l5 5zM90 70l5 -5l5 5z"/></g></g><g class="pp-lampe"><g class="k-lampe"><path class="f-b" d="M60 90h10v10h-10z"/><path class="f-o" d="M60 90h10l-5 5z"/><path class="f-l" d="M60 90l5 5l-5 5z"/><path class="f-r" d="M70 90v10l-5 -5z"/><path class="f-u" d="M60 100l5 -5l5 5z"/></g></g></g>
-<g class="pp-tentakel pp-t1"><g class="k-lila"><path class="f-b" d="M0 120h10v10h-10zM10 120h10v10h-10zM20 120h10v10h-10zM10 130h10v10h-10zM20 130h10v10h-10z"/><path class="f-o" d="M0 120h10l-5 5zM10 120h10l-5 5zM20 120h10l-5 5zM10 130h10l-5 5zM20 130h10l-5 5z"/><path class="f-l" d="M0 120l5 5l-5 5zM10 120l5 5l-5 5zM20 120l5 5l-5 5zM10 130l5 5l-5 5zM20 130l5 5l-5 5z"/><path class="f-r" d="M10 120v10l-5 -5zM20 120v10l-5 -5zM30 120v10l-5 -5zM20 130v10l-5 -5zM30 130v10l-5 -5z"/><path class="f-u" d="M0 130l5 -5l5 5zM10 130l5 -5l5 5zM20 130l5 -5l5 5zM10 140l5 -5l5 5zM20 140l5 -5l5 5z"/></g><g class="k-tief"><path class="f-b" d="M30 120h10v10h-10z"/><path class="f-o" d="M30 120h10l-5 5z"/><path class="f-l" d="M30 120l5 5l-5 5z"/><path class="f-r" d="M40 120v10l-5 -5z"/><path class="f-u" d="M30 130l5 -5l5 5z"/></g></g><g class="pp-tentakel pp-t2"><g class="k-lila"><path class="f-b" d="M40 120h10v10h-10zM50 120h10v10h-10zM40 130h10v10h-10zM50 130h10v10h-10z"/><path class="f-o" d="M40 120h10l-5 5zM50 120h10l-5 5zM40 130h10l-5 5zM50 130h10l-5 5z"/><path class="f-l" d="M40 120l5 5l-5 5zM50 120l5 5l-5 5zM40 130l5 5l-5 5zM50 130l5 5l-5 5z"/><path class="f-r" d="M50 120v10l-5 -5zM60 120v10l-5 -5zM50 130v10l-5 -5zM60 130v10l-5 -5z"/><path class="f-u" d="M40 130l5 -5l5 5zM50 130l5 -5l5 5zM40 140l5 -5l5 5zM50 140l5 -5l5 5z"/></g><g class="k-tief"><path class="f-b" d="M60 120h10v10h-10zM70 120h10v10h-10z"/><path class="f-o" d="M60 120h10l-5 5zM70 120h10l-5 5z"/><path class="f-l" d="M60 120l5 5l-5 5zM70 120l5 5l-5 5z"/><path class="f-r" d="M70 120v10l-5 -5zM80 120v10l-5 -5z"/><path class="f-u" d="M60 130l5 -5l5 5zM70 130l5 -5l5 5z"/></g></g><g class="pp-tentakel pp-t3"><g class="k-lila"><path class="f-b" d="M80 120h10v10h-10zM90 120h10v10h-10zM80 130h10v10h-10zM90 130h10v10h-10z"/><path class="f-o" d="M80 120h10l-5 5zM90 120h10l-5 5zM80 130h10l-5 5zM90 130h10l-5 5z"/><path class="f-l" d="M80 120l5 5l-5 5zM90 120l5 5l-5 5zM80 130l5 5l-5 5zM90 130l5 5l-5 5z"/><path class="f-r" d="M90 120v10l-5 -5zM100 120v10l-5 -5zM90 130v10l-5 -5zM100 130v10l-5 -5z"/><path class="f-u" d="M80 130l5 -5l5 5zM90 130l5 -5l5 5zM80 140l5 -5l5 5zM90 140l5 -5l5 5z"/></g><g class="k-tief"><path class="f-b" d="M100 120h10v10h-10z"/><path class="f-o" d="M100 120h10l-5 5z"/><path class="f-l" d="M100 120l5 5l-5 5z"/><path class="f-r" d="M110 120v10l-5 -5z"/><path class="f-u" d="M100 130l5 -5l5 5z"/></g></g><g class="pp-tentakel pp-t4"><g class="pp-winken"><g class="k-lila"><path class="f-b" d="M110 120h10v10h-10zM120 120h10v10h-10zM130 120h10v10h-10zM110 130h10v10h-10zM120 130h10v10h-10z"/><path class="f-o" d="M110 120h10l-5 5zM120 120h10l-5 5zM130 120h10l-5 5zM110 130h10l-5 5zM120 130h10l-5 5z"/><path class="f-l" d="M110 120l5 5l-5 5zM120 120l5 5l-5 5zM130 120l5 5l-5 5zM110 130l5 5l-5 5zM120 130l5 5l-5 5z"/><path class="f-r" d="M120 120v10l-5 -5zM130 120v10l-5 -5zM140 120v10l-5 -5zM120 130v10l-5 -5zM130 130v10l-5 -5z"/><path class="f-u" d="M110 130l5 -5l5 5zM120 130l5 -5l5 5zM130 130l5 -5l5 5zM110 140l5 -5l5 5zM120 140l5 -5l5 5z"/></g></g></g>
-<g class="arm arm-stempel"><g class="k-lila"><path class="f-b" d="M140 100h10v10h-10zM150 100h10v10h-10zM160 100h10v10h-10zM170 100h10v10h-10zM180 100h10v10h-10zM190 100h10v10h-10zM200 100h10v10h-10z"/><path class="f-o" d="M140 100h10l-5 5zM150 100h10l-5 5zM160 100h10l-5 5zM170 100h10l-5 5zM180 100h10l-5 5zM190 100h10l-5 5zM200 100h10l-5 5z"/><path class="f-l" d="M140 100l5 5l-5 5zM150 100l5 5l-5 5zM160 100l5 5l-5 5zM170 100l5 5l-5 5zM180 100l5 5l-5 5zM190 100l5 5l-5 5zM200 100l5 5l-5 5z"/><path class="f-r" d="M150 100v10l-5 -5zM160 100v10l-5 -5zM170 100v10l-5 -5zM180 100v10l-5 -5zM190 100v10l-5 -5zM200 100v10l-5 -5zM210 100v10l-5 -5z"/><path class="f-u" d="M140 110l5 -5l5 5zM150 110l5 -5l5 5zM160 110l5 -5l5 5zM170 110l5 -5l5 5zM180 110l5 -5l5 5zM190 110l5 -5l5 5zM200 110l5 -5l5 5z"/></g><image class="arm-ding" href="assets/origami/stempel.webp" x="194" y="104" width="36" height="49"/></g>
-</g>
-</svg></div>
-          <div class="buero-blase" id="buero-blase">
-            <span class="buero-wer"><span class="lampe"></span><span id="buero-wer">Ruft an: Praxis Dr. Weber</span></span>
-            <span class="buero-sagt" id="buero-sagt">«Hätten Sie nächste Woche am Vormittag Zeit?»</span>
-          </div>
-        </div>
+        <p class="blase blase-du" id="chat-frage"></p>
+        <p class="blase blase-polpino" id="chat-antwort"></p>
       </div>
-    </section>
-
-    <section class="bogen bogen-flaeche" aria-labelledby="so-gehts">
-      <span class="kante" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="ablauf">
-          <div class="entfalten">
-            <div class="abschnitt-kopf">
-              <h2 id="so-gehts">Ein Kontakt in WhatsApp, <span class="zweit">der für dich telefoniert.</span></h2>
-            </div>
-            <ol class="schritte">
-              <li><span class="faltzahl" aria-hidden="true">1</span><div><h3>Schreib, was zu tun ist</h3><p>Als Text, Sprachnachricht oder Foto.</p></div></li>
-              <li><span class="faltzahl" aria-hidden="true">2</span><div><h3>Polpino ruft an</h3><p>Er stellt sich als KI vor und wartet für dich in der Schleife.</p></div></li>
-              <li><span class="faltzahl" aria-hidden="true">3</span><div><h3>Du bekommst das Ergebnis</h3><p>Als Nachricht. Termine auf Wunsch im Kalender.</p></div></li>
-            </ol>
-          </div>
-
-          <figure class="chat-figur">
-            <img class="schwebt schwebt-handy" data-tiefe="-0.12" src="assets/origami/handy.webp" width="360" height="572" alt="" aria-hidden="true">
-            <img class="schwebt schwebt-umschlag" data-tiefe="0.18" src="assets/origami/umschlag.webp" width="480" height="341" alt="" aria-hidden="true">
-            <div class="chat papier-karte" id="chat" role="group" aria-label="Beispiel eines Chats mit Polpino">
-              <div class="chat-kopf">
-                <svg class="figur" id="chat-figur" viewBox="0 0 16 14" width="32" height="28" aria-hidden="true" focusable="false"><use href="#polpino"/></svg>
-                <div>
-                  <p class="chat-name">Polpino</p>
-                  <p class="chat-status" id="chat-status">KI-Assistenz</p>
-                </div>
-              </div>
-              <p class="blase blase-du" data-schritt="1">Kannst du mir bei Dr. Weber einen Termin holen? Nächste Woche, am Vormittag.<time>09:12</time></p>
-              <p class="tippt" data-schritt="2" hidden aria-hidden="true"><i></i><i></i><i></i></p>
-              <p class="blase blase-polpino" data-schritt="3">Mach ich, ich ruf gleich an.<time>09:12</time></p>
-              <p class="chat-anruf" data-schritt="4"><span class="lampe" aria-hidden="true"></span>Polpino telefoniert <span class="welle" aria-hidden="true"><i></i><i></i><i></i><i></i></span> <span class="dauer">1:47</span></p>
-              <p class="blase blase-polpino" data-schritt="5">Dienstag 10:30 bei Dr. Weber. Steht im Kalender.<time>09:19</time></p>
-              <p class="kalender" data-schritt="6"><svg aria-hidden="true" focusable="false"><use href="#haken"/></svg>Di 10:30, Dr. Weber</p>
-            </div>
-            <figcaption class="chat-fuss">
-              <span class="klein leise">Beispiel. So schreibt Polpino: kurz, Ergebnis zuerst.</span>
-              <button class="knopf knopf-leise knopf-klein chat-nochmal" type="button" hidden>Nochmal abspielen</button>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    
-
-    
-
-    <section class="bogen" id="testrunde" aria-labelledby="testrunde-titel">
-      <span class="kante" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="abschnitt-kopf entfalten">
-          <h2 id="testrunde-titel">Die Testrunde auf einen Blick.</h2>
-          <p class="lead">Drei Wochen, echte Anrufe, kostenlos. Polpino ist ein Prototyp und macht noch Fehler. Genau die suchen wir.</p>
-        </div>
-        <div class="deal" id="deal">
-          <div class="deal-seite deal-geben falt-karte">
-            <p class="deal-kicker">Unser Teil</p>
-            <h3>Das bekommst du</h3>
-            <ul class="gaben">
-                <li class="gabe"><img src="assets/origami/geschenk.webp" alt="" aria-hidden="true" loading="lazy"><div><h4>Gratis testen</h4><p>Polpino und alle Anrufe, solange die Testrunde läuft.</p></div></li>
-                <li class="gabe"><img src="assets/origami/ticket.webp" alt="" aria-hidden="true" loading="lazy"><div><h4>Drei Monate geschenkt</h4><p>Als Dankeschön, wenn Polpino startet.</p></div></li>
-                <li class="gabe"><img src="assets/origami/rettungsring.webp" alt="" aria-hidden="true" loading="lazy"><div><h4>Ein Sicherheitsnetz</h4><p>Bei jedem Anruf schaut ein Mensch aus unserem Team mit.</p></div></li>
-                <li class="gabe"><img src="assets/origami/dosentelefon.webp" alt="" aria-hidden="true" loading="lazy"><div><h4>Du redest mit</h4><p>Deine Rückmeldung fliesst direkt in die nächste Version.</p></div></li>
-            </ul>
-          </div>
-          <div class="deal-seite deal-voraus falt-karte">
-            <p class="deal-kicker">Dein Teil</p>
-            <h3>Das erwarten wir</h3>
-            <p class="deal-hinweis">Passt das zu dir? Hak ab, was stimmt.</p>
-            <ul class="bedingungen">
-              <li><label class="bedingung"><input type="checkbox" name="passt-0"><img src="assets/origami/haus.webp" alt="" aria-hidden="true" loading="lazy"><span class="bedingung-text"><strong>Echte Aufträge</strong><span>Rund zwei pro Woche, aus deinem eigenen Alltag.</span></span><span class="stempel" aria-hidden="true">Passt</span></label></li>
-              <li><label class="bedingung"><input type="checkbox" name="passt-1"><img src="assets/origami/sprechblase.webp" alt="" aria-hidden="true" loading="lazy"><span class="bedingung-text"><strong>Ehrliches Feedback</strong><span>Freitags zwei kurze Fragen, gerade wenn etwas schiefging.</span></span><span class="stempel" aria-hidden="true">Passt</span></label></li>
-              <li><label class="bedingung"><input type="checkbox" name="passt-2"><img src="assets/origami/sanduhr.webp" alt="" aria-hidden="true" loading="lazy"><span class="bedingung-text"><strong>Unter einer Stunde</strong><span>Plus zwei kurze Gespräche, verteilt auf drei Wochen.</span></span><span class="stempel" aria-hidden="true">Passt</span></label></li>
-              <li><label class="bedingung"><input type="checkbox" name="passt-3"><img src="assets/origami/stopphand.webp" alt="" aria-hidden="true" loading="lazy"><span class="bedingung-text"><strong>Keine Notfälle</strong><span>Die 144 oder 112 wählst du immer selbst.</span></span><span class="stempel" aria-hidden="true">Passt</span></label></li>
-            </ul>
-            <p class="deal-ergebnis" role="status"><span class="deal-offen">Noch nicht alles abgehakt. Kein Problem, schau dir die Punkte in Ruhe an.</span><span class="deal-passt">Alles paletti. Dann bist du hier richtig. <a href="#warteliste">Zur Warteliste</a></span></p>
-          </div>
-          <div class="deal-seite deal-teilen falt-karte">
-            <p class="deal-kicker">Deine Daten</p>
-            <h3>Das teilst du mit uns</h3>
-            <ul class="teilen">
-                <li><img src="assets/origami/handy.webp" alt="" aria-hidden="true" loading="lazy"><div><h4>Deine Aufträge</h4><p>Was du Polpino in WhatsApp schreibst.</p></div></li>
-                <li><img src="assets/origami/person.webp" alt="" aria-hidden="true" loading="lazy"><div><h4>Angaben pro Anruf</h4><p>Zum Beispiel Name und Wunschtermin, nur mit deiner Freigabe.</p></div></li>
-                <li><img src="assets/origami/dokument.webp" alt="" aria-hidden="true" loading="lazy"><div><h4>Protokolle als Text</h4><p>Keine Tonaufnahme. Gelöscht nach 30 Tagen.</p></div></li>
-                <li class="teilen-nie"><img src="assets/origami/tresor.webp" alt="" aria-hidden="true" loading="lazy"><div><h4>Nie</h4><p>IBAN, Kartennummern, Passwörter, PIN, TAN, Ausweis- und AHV-Nummer.</p></div></li>
-            </ul>
-          </div>
-        </div>
-
-        <h3 class="zeitplan-titel">Der Zeitplan</h3>
-        <div class="leporello-rahmen" id="zeitplan">
-          <div class="leporello-laeufer" aria-hidden="true"><div><svg class="figur" viewBox="0 0 16 14" width="32" height="28" focusable="false"><use href="#polpino"/></svg></div></div>
-          <ol class="leporello">
-            <li><span class="wann">Jetzt</span><h3>Warteliste</h3><p class="klein">Wir melden uns, sobald es losgeht.</p></li>
-            <li><span class="wann">Vor dem Start</span><h3>Kennenlernen</h3><p class="klein">15 Minuten per Video. Wir richten Polpino mit dir ein.</p></li>
-            <li><span class="wann">Woche 1 bis 3</span><h3>Polpino im Alltag</h3><p class="klein">Rund zwei Aufträge pro Woche. Freitags zwei kurze Fragen.</p></li>
-            <li><span class="wann">Halbzeit</span><h3>Kurzes Gespräch</h3><p class="klein">15 Minuten: Was klappt, was nervt?</p></li>
-            <li><span class="wann">Ende</span><h3>Abschluss</h3><p class="klein">Fünf Minuten Umfrage. Danach entscheidest du, ob du bleibst.</p></li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="bogen bogen-flaeche" aria-labelledby="ehrlich">
-      <span class="kante" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="ehrlich">
-          <div class="ehrlich-text entfalten">
-            <h2 id="ehrlich">Ehrlich vom ersten Satz an.</h2>
-            <figure class="zitat-figur">
-              <div class="zitat-hoerer" aria-hidden="true">
-                <svg class="klingel" viewBox="0 0 200 120" focusable="false"><path class="klingel-1" d="M28 30q-14 30 0 60M172 30q14 30 0 60"/><path class="klingel-2" d="M12 18q-22 42 0 84M188 18q22 42 0 84"/></svg>
-                <img class="hoerer" src="assets/origami/hoerer.webp" width="560" height="425" alt="" loading="lazy">
-              </div>
-              <div>
-                <blockquote class="zitat" id="zitat">
-                  <p><span class="gf">«</span>Pronto, hier ist Polpino, die KI&#8209;Assistenz von Lea&nbsp;Meier.<span class="gf">»</span></p>
-                </blockquote>
-                <figcaption class="zitat-quelle klein leise"><span class="lampe" aria-hidden="true"></span>So beginnt jeder Anruf.</figcaption>
-              </div>
-            </figure>
-          </div>
-          <ul class="versprechen">
-            <li class="falt-karte"><img src="assets/origami/megafon.webp" alt="" aria-hidden="true" loading="lazy"><div><h3>Klar als KI</h3><p>Polpino gibt sich nie als Mensch aus.</p></div></li>
-            <li class="falt-karte"><img src="assets/origami/trichter.webp" alt="" aria-hidden="true" loading="lazy"><div><h3>Nur, was du freigibst</h3><p>Am Telefon nennt er nur, was du für diesen Anruf erlaubst.</p></div></li>
-            <li class="falt-karte"><img src="assets/origami/schluessel.webp" alt="" aria-hidden="true" loading="lazy"><div><h3>Kein Geld, keine Verträge</h3><p>Bezahlen und Preise entscheidest du.</p></div></li>
-            <li class="falt-karte"><img src="assets/origami/schredder.webp" alt="" aria-hidden="true" loading="lazy"><div><h3>Nach 30 Tagen gelöscht</h3><p>Danach bleiben nur Zahlen ohne Namen.</p></div></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    
-
-    <section class="bogen" id="warteliste" aria-labelledby="anmelden">
-      <span class="kante" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="anmeldung">
-          <div class="entfalten">
-            <div class="abschnitt-kopf">
-              <h2 id="anmelden">Sei bei der ersten Testrunde dabei.</h2>
-              <p class="lead">Die Plätze sind begrenzt. Wir starten in der Schweiz, Deutschland folgt.</p>
-            </div>
-            <div class="anmeldung-figur" aria-hidden="true"><svg class="figur" viewBox="0 0 16 14" width="96" height="84" focusable="false"><use href="#polpino"/></svg></div>
-          </div>
-
-          <div class="formular-buehne">
-            <img class="abflug" id="abflug" src="assets/origami/flieger.webp" width="520" height="255" alt="" aria-hidden="true">
-            <form class="formular papier-karte" id="formular" action="https://BREVO_FORM_URL" method="post">
-              <div class="feld">
-                <label for="email">E-Mail</label>
-                <input id="email" name="EMAIL" type="email" autocomplete="email" inputmode="email" required aria-describedby="email-fehler" placeholder="name@beispiel.ch">
-                <p class="fehlertext" id="email-fehler" aria-live="polite"></p>
-              </div>
-              <fieldset class="feld">
-                <legend>Wohnort</legend>
-                <div class="wahl">
-                  <label><input type="radio" name="LAND" value="Schweiz"><span>Schweiz</span></label>
-                  <label><input type="radio" name="LAND" value="Deutschland"><span>Deutschland</span></label>
-                  <label><input type="radio" name="LAND" value="anderes Land"><span>anderswo</span></label>
-                </div>
-              </fieldset>
-              <div class="feld">
-                <label for="anruf">Welchen Anruf schiebst du vor dir her? <span class="optional">(optional)</span></label>
-                <textarea id="anruf" name="ANRUF" maxlength="280" rows="3" aria-describedby="anruf-hilfe"></textarea>
-                <p class="hilfe" id="anruf-hilfe">Bitte keine Gesundheitsangaben.</p>
-              </div>
-              <div class="feld">
-                <label class="einwilligung" for="einwilligung">
-                  <input id="einwilligung" name="OPT_IN" type="checkbox" value="1" required aria-describedby="einwilligung-fehler">
-                  <span>Ja, schreibt mir per E-Mail zur Testrunde und zum Start von Polpino. Abmelden jederzeit. <a href="datenschutz.html">Datenschutz</a></span>
-                </label>
-                <p class="fehlertext" id="einwilligung-fehler" aria-live="polite"></p>
-              </div>
-              <div class="honig" aria-hidden="true">
-                <input id="email_address_check" name="email_address_check" type="text" tabindex="-1" autocomplete="off" value="" aria-label="leer lassen">
-              </div>
-              <input type="hidden" name="locale" value="de">
-              <button class="knopf" type="submit">Auf die Warteliste</button>
-              <p class="klein leise">Danach bestätigst du per E-Mail.</p>
-            </form>
-
-            <div class="meldung meldung-gut papier-karte" id="meldung-gut" tabindex="-1" hidden>
-              <img class="meldung-funken" src="assets/origami/funken.webp" width="360" height="308" alt="" aria-hidden="true">
-              <h3>Fast geschafft.</h3>
-              <p>Bitte öffne die E-Mail von uns und bestätige deine Adresse. Keine E-Mail da? Schau im Spam-Ordner nach.</p>
-              <p class="klein leise" id="meldung-vorschau" hidden>Vorschau: Das Formular ist noch nicht mit Brevo verbunden, es wurde nichts gesendet.</p>
-            </div>
-            <div class="meldung meldung-fehler" id="meldung-fehler" role="alert" hidden>
-              <p><strong>Das hat nicht geklappt.</strong> Versuch es bitte nochmal oder schreib an <a href="mailto:hallo@polpino.ch">hallo@polpino.ch</a>.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bogen bogen-flaeche" aria-labelledby="fragen">
-      <span class="kante" aria-hidden="true"></span>
-      <div class="wrap fragen-raster">
-        <div class="abschnitt-kopf">
-          <h2 id="fragen">Fragen</h2>
-          <img class="fragen-espresso" src="assets/origami/espresso2.webp" width="420" height="598" alt="" aria-hidden="true" loading="lazy">
-        </div>
-        <div class="fragen">
-          <details>
-            <summary>Brauche ich eine App?</summary>
-            <p>Nein. Polpino ist ein Kontakt in WhatsApp. Du schreibst ihm, wie du einem Menschen schreiben würdest.</p>
-          </details>
-          <details>
-            <summary>Wann geht es los?</summary>
-            <p>Zuerst testet Polpino zwei Wochen lang bei uns selbst. Danach laden wir die ersten Leute von der Warteliste ein. Ein festes Datum gibt es noch nicht, wir melden uns per E-Mail.</p>
-          </details>
-          <details>
-            <summary>Was, wenn Polpino einen Fehler macht?</summary>
-            <p>Dafür ist die Testrunde da. Bei jedem Anruf schaut ein Mensch aus unserem Team mit. Geht trotzdem etwas schief, klären wir es mit dir.</p>
-          </details>
-          <details>
-            <summary>Was kostet Polpino?</summary>
-            <p>In der Testrunde nichts. Als Dankeschön bekommst du nach dem Start drei Monate geschenkt. Den Preis danach legen wir mit dem fest, was wir in der Testrunde lernen, und du entscheidest selbst, ob du weitermachst.</p>
-          </details>
-          <details>
-            <summary>Spricht Polpino Schweizerdeutsch?</summary>
-            <p>Am Telefon spricht Polpino Hochdeutsch. Wie gut er Mundart versteht, testen wir gerade. Wichtige Angaben wie Uhrzeit und Datum wiederholt er zur Sicherheit.</p>
-          </details>
-          <details>
-            <summary>Wie wertet ihr die Testrunde aus?</summary>
-            <p>Jeder Auftrag bekommt eine Fallakte mit Chat, Gesprächsprotokoll als Text und Ergebnis. Ein Prüfprogramm checkt jede Regel, etwa ob die KI-Ansage kam, eine Prüf-KI bewertet die Gespräche, und Stichproben lesen wir selbst. Nach 30 Tagen löschen wir die Protokolle.</p>
-          </details>
-          <details>
-            <summary>Was passiert mit meinen Daten?</summary>
-            <p>Für die Warteliste speichern wir nur, was du hier einträgst, beim Versanddienst Brevo mit Servern in der EU. Abmelden geht mit einem Klick. Alles Weitere steht in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-          </details>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
   <footer class="fuss">
-    <div class="fuss-boden" aria-hidden="true"><div class="huegel-band huegel-vorne"><img src="assets/origami/huegel-vorne.webp" width="2688" height="129" alt="" loading="lazy"><img src="assets/origami/huegel-vorne.webp" width="2688" height="129" alt="" loading="lazy"></div></div>
-    <div class="fuss-papier">
-      <div class="wrap">
-        <a class="marke" href="./" aria-label="Polpino by aigency, Startseite">
-          <span class="marke-wort">polpino</span><span class="marke-by">by aigency</span>
-        </a>
-        <p class="fuss-zeile">Ein Angebot der Aigency AG, Seestrasse 25, 8002 Zürich.</p>
-        <p class="fuss-zeile">
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
-          <a href="mailto:hallo@polpino.ch">hallo@polpino.ch</a>
-        </p>
-      </div>
-    </div>
+    <span>© 2026 Aigency AG, Zürich</span>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="impressum.html">Impressum</a>
   </footer>
 </body>
 </html>
