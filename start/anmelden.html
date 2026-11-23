@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bei Polpino anmelden</title>
+  <meta name="description" content="Anmeldung bei Polpino mit deiner Handynummer. Vorschau, es wird noch nichts gesendet.">
+  <meta name="theme-color" content="#FAFAF8">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/fraunces-soft-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="start.css">
+  <script src="start.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt</a>
+
+  <header class="kopf">
+    <div class="marke-zeile">
+      <div class="figur" aria-hidden="true">
+        <img src="../assets/img/start/polpino-ruhe.webp" width="50" height="50" alt="">
+      </div>
+      <a class="marke" href="./" aria-label="Polpino, Startseite">polpino</a>
+    </div>
+  </header>
+
+  <main id="inhalt" class="mitte">
+    <div class="anmelden">
+      <div>
+        <h1>Bei Polpino anmelden</h1>
+        <p class="leise">Du bekommst einen Code per WhatsApp.</p>
+      </div>
+      <div class="feld">
+        <label for="nummer">Handynummer</label>
+        <div class="nummer">
+          <span aria-hidden="true">+41</span>
+          <input id="nummer" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="79 000 00 00" aria-describedby="offen">
+        </div>
+      </div>
+      <button class="senden" id="senden" type="button">Code senden</button>
+      <p class="klein" id="hinweis" role="status" hidden>Das ist eine Vorschau. Es wurde nichts gesendet und nichts gespeichert.</p>
+      <p class="leise klein" id="offen">Polpino ist im Moment nur auf Einladung offen. Ohne Einladung kommst du auf die Warteliste.</p>
+    </div>
+  </main>
+
+  <footer class="fuss">
+    <span>© 2026 Aigency AG, Zürich</span>
+    <a href="../">So arbeitet Polpino</a>
+    <a href="../datenschutz.html">Datenschutz</a>
+    <a href="../impressum.html">Impressum</a>
+  </footer>
+</body>
+</html>

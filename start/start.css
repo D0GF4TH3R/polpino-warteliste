@@ -1,0 +1,318 @@
+/* Hallmark · checked: 2026-11-23 · genre: editorial (inferred) · copy: verbatim
+ * floor: 0 FAIL · fixed: 5 (7a, 10a, 34, 44d, 48) · structural: 3 printed (44c, 77, 79)
+ * built: the project · redesign: polish · v2.0.0 */
+/* Polpino Startseite, leise Fassung (Entwurf 23.11.2026). System: CD-Manual Polpino, Abschnitt «Lautstärke». */
+@font-face {
+  font-family: "Fraunces Soft";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("../assets/fonts/fraunces-soft-latin.woff2") format("woff2-variations");
+}
+@font-face {
+  font-family: "Inter Tight";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/inter-tight-latin-wght-normal.woff2") format("woff2-variations");
+}
+
+:root {
+  --papier: #FAFAF8;
+  --flaeche: #F2F1ED;
+  --linie: #E3E1DB;
+  --strich: #B4B1A9;
+  --rand: #878A89;
+  --tinte: #151310;
+  --tinte-leise: #5B6366;
+  --rauchblau: #3D5A6D;
+  --rauchblau-hell: #E3EAEE;
+  --feld: #FFFEFB;
+  --serif: "Fraunces Soft", Georgia, serif;
+  --sans: "Inter Tight", system-ui, sans-serif;
+  --satz: 19px;
+}
+@media (min-width: 720px) { :root { --satz: 21px; } }
+@media (min-width: 1100px) { :root { --satz: 24px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  overflow-x: clip;
+  background-color: var(--papier);
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  /* Inhalt ab 1488 px Breite mittig, damit er auf grossen Schirmen nicht am Rand klebt */
+  padding: 20px max(24px, calc(50vw - 720px)) 16px;
+  overflow-x: clip;
+  display: flex;
+  flex-direction: column;
+  color: var(--tinte);
+  background-color: var(--papier);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.5;
+  font-kerning: normal;
+}
+/* Papierfaser */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .49 0 0 0 0 .47 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+
+a { color: var(--tinte); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--rauchblau); }
+a:active { color: var(--tinte-leise); }
+:focus-visible { outline: 3px solid var(--rauchblau); outline-offset: 3px; border-radius: 4px; }
+
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 10;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: var(--tinte);
+  color: var(--papier);
+}
+.skip:focus { top: 16px; }
+.skip:hover { color: var(--papier); }
+
+/* ---------- Kopf ---------- */
+.kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.marke-zeile {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.marke {
+  display: block;
+  padding: 8px 0;
+  color: var(--tinte);
+  font-family: var(--serif);
+  font-weight: 900;
+  font-variation-settings: "opsz" 144;
+  font-size: 25px;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  text-decoration: none;
+}
+.marke:hover { color: var(--tinte); }
+
+/* Polpino: so hoch wie der Schriftzug, mittig dazu. Das Bild ist 50 px gross, der Koerper darin rund 30 px. */
+.figur {
+  position: relative;
+  flex: none;
+  width: 46px;
+  height: 34px;
+  pointer-events: none;
+}
+.figur img {
+  position: absolute;
+  right: 2px;
+  top: -8px;
+  width: 50px;
+  height: 50px;
+  max-width: none;
+  mix-blend-mode: multiply;
+}
+.figur .auftritt { opacity: 0; }
+/* Auftritt: wartet, laeuft herein, schiebt die Wortmarke, dann uebernimmt die Schleife.
+   Der Platz der Figur ist von Anfang an da; Wortmarke und Auftrittsbild stehen um ihn versetzt und gleiten zurueck. */
+html.start .marke,
+html.start .figur .auftritt { transform: translateX(-46px); }
+html.start .figur .schleife { opacity: 0; }
+html.start.lauf .figur .auftritt { opacity: 1; }
+html.start.geschoben .marke,
+html.start.geschoben .figur .auftritt { transform: none; transition: transform 1.6s cubic-bezier(0.4, 0, 0.3, 1); }
+
+.konto {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.konto a { display: inline-block; padding: 12px 0; text-underline-offset: 3px; }
+@media (max-width: 520px) { .konto .nur-breit { display: none; } }
+
+/* ---------- Inhalt ---------- */
+main {
+  flex-grow: 1;
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  align-content: flex-start;
+  gap: 40px 96px;
+}
+.saetze {
+  flex: 0 1 440px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+  font-family: var(--serif);
+  font-size: var(--satz);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+.saetze h1, .saetze p { margin: 0; }
+.saetze p { line-height: 1.35; text-wrap: pretty; }
+.saetze h1 { font-size: inherit; line-height: inherit; font-weight: 500; letter-spacing: inherit; text-wrap: balance; }
+
+.bsp {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--strich);
+}
+.bsp:hover, .bsp.offen { color: inherit; text-decoration-color: var(--tinte); }
+
+.weiter {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-weight: 500;
+}
+.weiter svg { flex: none; }
+@media (max-width: 350px) { .weiter { font-size: 17px; } }
+
+/* ---------- Mini-Chat ---------- */
+.chat-platz {
+  flex: 0 1 320px;
+  min-width: 0;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+  background: var(--flaeche);
+  font-size: 15px;
+  line-height: 21px;
+}
+.chat[hidden] { display: none; }
+.chat-kopf { display: flex; align-items: center; gap: 8px; }
+.chat-bild {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  background: var(--papier);
+}
+.chat-bild img { display: block; width: 18px; height: 18px; image-rendering: pixelated; }
+.chat-name { display: flex; flex-direction: column; flex-grow: 1; font-weight: 500; line-height: 18px; }
+.chat-name span, .chat-marke { font-size: 12px; font-weight: 400; line-height: 16px; color: var(--tinte-leise); }
+.blase { max-width: 86%; margin: 0; padding: 8px 12px; border-radius: 8px; }
+.blase-du { align-self: flex-end; background: var(--rauchblau-hell); }
+.blase-polpino { align-self: flex-start; border: 1px solid var(--linie); background: var(--papier); }
+
+/* ---------- Fuss ---------- */
+.fuss {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 20px;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--tinte-leise);
+}
+.fuss span, .fuss a { display: inline-block; padding: 16px 0; }
+.fuss a { color: var(--tinte-leise); text-underline-offset: 3px; }
+.fuss a:hover { color: var(--tinte); }
+
+/* ---------- Anmelden ---------- */
+.mitte {
+  flex-grow: 1;
+  margin-top: 0;
+  padding: 40px 0;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.anmelden { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 24px; }
+.anmelden h1 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.anmelden p { margin: 0; }
+.anmelden .leise { color: var(--tinte-leise); }
+.anmelden .klein { font-size: 14px; line-height: 20px; }
+.feld { display: flex; flex-direction: column; gap: 8px; }
+.feld label { font-size: 14px; line-height: 20px; font-weight: 500; }
+.nummer {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  background: var(--feld);
+}
+.nummer:focus-within { outline: 3px solid var(--rauchblau); outline-offset: 2px; }
+.nummer span { padding: 0 12px 0 16px; border-right: 1px solid var(--linie); color: var(--tinte-leise); }
+.nummer input {
+  flex-grow: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 16px 0 12px;
+  border: 0;
+  border-radius: 0 8px 8px 0;
+  background: transparent;
+  color: var(--tinte);
+  font: inherit;
+}
+.nummer input:focus { outline: none; }
+.senden {
+  height: 52px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--tinte);
+  color: var(--papier);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.senden:hover { background: var(--rauchblau); }
+.senden:active { background: var(--tinte-leise); }
+.senden:disabled { background: var(--strich); cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.start.geschoben .marke,
+  html.start.geschoben .figur .auftritt { transition: none; }
+}
