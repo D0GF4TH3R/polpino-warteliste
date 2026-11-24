@@ -12,7 +12,8 @@
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
-body { margin: 0; overflow-x: clip; color: var(--tinte); font-family: var(--sans); background: var(--papier) url("img/papier.webp") repeat; background-size: 256px 256px; }
+body, .seite { background: var(--papier) url("img/papier.webp") repeat; background-size: 256px 256px; }
+body { margin: 0; overflow-x: clip; color: var(--tinte); font-family: var(--sans); }
 a { color: var(--tinte); }
 a:hover { color: var(--rauchblau); }
 .skip { position: absolute; left: 16px; top: -60px; z-index: 60; padding: 8px 16px; border-radius: 4px; background: var(--tinte); color: var(--papier); }
@@ -20,6 +21,8 @@ a:hover { color: var(--rauchblau); }
 .skip:hover { color: var(--papier); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
+/* .seite ist durch container-type ein Stapelkontext und trägt darum die Textur selbst (deckungsgleich mit body, beginnt bei 0,0):
+   nur so multiplizieren Faltfilme und Krake mit dem Papier statt mit Transparenz. */
 .seite { container-type: inline-size; position: relative; min-height: 100vh; min-height: 100dvh; padding: 16px 24px 8px; display: flex; flex-direction: column; }
 
 /* Kopf mit Figur und Wortmarke */
@@ -70,9 +73,11 @@ h1 em { font-style: italic; font-weight: 700; color: var(--rauchblau); }
 @container (min-width: 900px) { .raster { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 .kachel { display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 44px; padding: 2px 0; background: none; border: 0; cursor: pointer; font: inherit; color: var(--tinte); }
 .kachel:focus-visible { outline: 2px solid var(--lila); outline-offset: 4px; border-radius: 6px; }
-.hebe { display: block; width: var(--ikon); height: var(--ikon); transition: transform .25s cubic-bezier(.3, .7, .3, 1); }
-.hebe img { display: block; width: 100%; height: 100%; }
-.kachel:hover .hebe { transform: translateY(-4px) rotate(-4deg); }
+.hebe { display: block; width: var(--ikon); height: var(--ikon); }
+/* Die Filme haben weissen Grund und multiplizieren mit dem Papier. Der Hover-Transform sitzt auf dem Bild selbst,
+   ein Transform auf .hebe würde das Bild vom Papier isolieren. */
+.hebe img { display: block; width: 100%; height: 100%; mix-blend-mode: multiply; transition: transform .25s cubic-bezier(.3, .7, .3, 1); }
+.kachel:hover .hebe img { transform: translateY(-4px) rotate(-4deg); }
 .name { font-size: 13.5px; line-height: 17px; font-weight: 500; transition: color .2s; }
 .kachel:hover .name { color: var(--lila); }
 html.bewegt .kachel .hebe img { visibility: hidden; }
@@ -94,7 +99,7 @@ html.bewegt.los .konf { animation: fall .9s cubic-bezier(.2, .7, .3, 1) both; }
 
 /* Text blendet weich ein */
 @keyframes ein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-html.bewegt .spalte { animation: ein .7s ease-out both; }
+html.bewegt .spalte { animation: ein .7s ease-out backwards; } /* backwards: nach dem Ende keine Isolation, sonst kein multiply */
 @keyframes linie { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 html.bewegt .linie { animation: linie .7s cubic-bezier(.3, .7, .3, 1) .15s both; }
 

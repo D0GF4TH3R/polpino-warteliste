@@ -71,7 +71,7 @@ if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)')
           b.src = b.getAttribute('data-film');
         });
         wurzel.classList.add('los');
-      }, Math.max(0, 450 - (Date.now() - t0)));
+      }, Math.max(0, 750 - (Date.now() - t0))); /* erst nach dem Einblenden der Spalte (700 ms), vorher ist sie isoliert */
     };
     var geladen = 0;
     bilder.forEach(function (b) {
