@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Polpino (Entwurf)</title>
+  <meta name="theme-color" content="#F5F5F2">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/fraunces-soft-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="entwurf.css">
+  <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('bewegt');</script>
+  <noscript><style>html.bewegt .figur{width:46px} html.bewegt .figur .schleife{opacity:1} html.bewegt .kachel .hebe img{visibility:visible} html.bewegt .konf{opacity:1}</style></noscript>
+  <script src="entwurf.js" defer></script>
+</head>
+<body>
+<div class="seite">
+  <header class="kopf">
+    <div class="marke-zeile">
+      <div class="figur" aria-hidden="true">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcset="img/polpino-ruhe.webp">
+          <img class="schleife" src="img/polpino-schleife.webp" width="50" height="50" alt="">
+        </picture>
+      </div>
+      <a class="marke" href="./" aria-label="Polpino Startseite"><img class="auftritt" alt="" width="214" height="50"><img class="logo" src="img/polpino-logo.svg" alt="polpino" width="79" height="28"></a>
+    </div>
+    <nav class="konto" aria-label="Konto">
+      <a href="anmelden.html">Anmelden</a>
+      <a class="nur-breit" href="anmelden.html">Einladung einlösen</a>
+    </nav>
+  </header>
+
+  <main id="inhalt">
+    <span aria-hidden="true" class="konf" style="left: 62%; top: 6%; width: 22px; height: 22px; animation-delay: 120ms"><i style="background-color: #8C5DA7; transform: rotate(16deg)"></i></span>
+    <span aria-hidden="true" class="konf" style="left: 80%; top: 22%; width: 17px; height: 17px; animation-delay: 240ms"><i style="background-color: #3D5A6D; transform: rotate(-14deg)"></i></span>
+    <span aria-hidden="true" class="konf" style="left: 70%; top: 52%; width: 26px; height: 26px; animation-delay: 360ms"><i style="background-color: #335754; transform: rotate(9deg)"></i></span>
+    <span aria-hidden="true" class="konf" style="left: 90%; top: 66%; width: 15px; height: 15px; animation-delay: 480ms"><i style="background-color: #8C5DA7; transform: rotate(32deg)"></i></span>
+    <span aria-hidden="true" class="konf" style="left: 58%; top: 80%; width: 19px; height: 19px; animation-delay: 600ms"><i style="background-color: #3D5A6D; transform: rotate(-24deg)"></i></span>
+    <span aria-hidden="true" class="konf" style="left: 84%; top: 90%; width: 21px; height: 21px; animation-delay: 720ms"><i style="background-color: #335754; transform: rotate(22deg)"></i></span>
+
+    <div class="spalte">
+      <div class="gruppe">
+        <h1>Ein Kontakt in WhatsApp, <em>der für dich telefoniert.</em></h1>
+        <div class="linie" aria-hidden="true"></div>
+      </div>
+      <p class="satz">Polpino ist eine KI-Assistenz. Du schreibst, was du brauchst. Polpino ruft an, bleibt dran und meldet sich mit dem Ergebnis.</p>
+      <div class="gruppe">
+        <p class="frage">Was darf Polpino erledigen?</p>
+        <div class="raster">
+          <button type="button" class="kachel" data-bsp="zahnarzt" aria-haspopup="dialog" aria-label="Beispiel Zahnarzt ansehen"><span class="hebe"><img src="img/ikon-zahnarzt.webp" data-film="img/film-zahnarzt.webp" alt="" width="84" height="84"></span><span class="name">Zahnarzt</span></button>
+          <button type="button" class="kachel" data-bsp="restaurant" aria-haspopup="dialog" aria-label="Beispiel Restaurant ansehen"><span class="hebe"><img src="img/ikon-restaurant.webp" data-film="img/film-restaurant.webp" alt="" width="84" height="84"></span><span class="name">Restaurant</span></button>
+          <button type="button" class="kachel" data-bsp="handwerker" aria-haspopup="dialog" aria-label="Beispiel Handwerker ansehen"><span class="hebe"><img src="img/ikon-handwerker.webp" data-film="img/film-handwerker.webp" alt="" width="84" height="84"></span><span class="name">Handwerker</span></button>
+          <button type="button" class="kachel" data-bsp="coiffeur" aria-haspopup="dialog" aria-label="Beispiel Coiffeur ansehen"><span class="hebe"><img src="img/ikon-coiffeur.webp" data-film="img/film-coiffeur.webp" alt="" width="84" height="84"></span><span class="name">Coiffeur</span></button>
+          <button type="button" class="kachel" data-bsp="hotline" aria-haspopup="dialog" aria-label="Beispiel Hotline ansehen"><span class="hebe"><img src="img/ikon-hotline.webp" data-film="img/film-hotline.webp" alt="" width="84" height="84"></span><span class="name">Hotline</span></button>
+          <button type="button" class="kachel" data-bsp="paket" aria-haspopup="dialog" aria-label="Beispiel Paket ansehen"><span class="hebe"><img src="img/ikon-paket.webp" data-film="img/film-paket.webp" alt="" width="84" height="84"></span><span class="name">Paket</span></button>
+        </div>
+      </div>
+      <div class="gruppe gruppe-eng">
+        <p class="steuer">Nur die Steuererklärung bleibt bei dir.</p>
+        <p class="satz">Mehr Zeit für dich, weniger Zeit am Telefon. Die Beta startet bald in der Schweiz.</p>
+      </div>
+      <a class="weiter" href="anmelden.html"><img src="img/ikon-chat.webp" alt="" width="40" height="40">Schreib Polpino <svg aria-hidden="true" width="9" height="16" viewBox="0 0 9 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1.5 3l5 5-5 5"/></svg></a>
+    </div>
+  </main>
+
+  <footer class="fuss">
+    <span>© 2026 Aigency AG</span>
+    <a href="../datenschutz.html">Datenschutz</a>
+    <a href="../impressum.html">Impressum</a>
+  </footer>
+</div>
+
+<div class="ueber" id="ueber" role="dialog" aria-modal="true" aria-label="Beispiel" hidden>
+  <div class="handy auf" id="handy">
+    <img src="img/handy.webp" alt="" width="300" height="577">
+    <div class="schirm">
+      <div class="chat-kopf">
+        <span class="chat-bild"><img src="img/polpino.webp" alt="" width="24" height="24"></span>
+        <span class="chat-name">Polpino<span>KI-Assistenz</span></span>
+      </div>
+      <div class="verlauf" id="verlauf" aria-live="polite"></div>
+    </div>
+  </div>
+  <button type="button" class="zu" id="zu" aria-label="Beispiel schliessen"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+</div>
+</body>
+</html>

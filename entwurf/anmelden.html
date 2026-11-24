@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bei Polpino anmelden (Entwurf)</title>
+  <meta name="theme-color" content="#F5F5F2">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="entwurf.css">
+</head>
+<body>
+<div class="seite">
+  <header class="kopf">
+    <div class="marke-zeile">
+      <div class="figur" aria-hidden="true">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcset="img/polpino-ruhe.webp">
+          <img class="schleife" src="img/polpino-schleife.webp" width="50" height="50" alt="">
+        </picture>
+      </div>
+      <a class="marke" href="./" aria-label="Polpino Startseite"><img class="logo" src="img/polpino-logo.svg" alt="polpino" width="79" height="28"></a>
+    </div>
+  </header>
+
+  <main class="anmeldung" id="inhalt">
+    <form class="karte" onsubmit="return false">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1>Bei Polpino anmelden</h1>
+        <p class="satz" style="color: #5B6366">Du bekommst einen Code per WhatsApp.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <label for="nummer" style="font-size: 14px; line-height: 20px; font-weight: 500">Handynummer</label>
+        <div class="feld"><span>+41</span><input id="nummer" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="79 000 00 00"></div>
+      </div>
+      <button type="submit" class="knopf">Code senden</button>
+      <p class="leise">Polpino ist im Moment nur auf Einladung offen. Ohne Einladung kommst du auf die Warteliste.</p>
+      <p class="leise">Entwurf: Hier wird noch nichts gesendet.</p>
+    </form>
+  </main>
+
+  <footer class="fuss">
+    <span>© 2026 Aigency AG</span>
+    <a href="../datenschutz.html">Datenschutz</a>
+    <a href="../impressum.html">Impressum</a>
+  </footer>
+</div>
+</body>
+</html>
