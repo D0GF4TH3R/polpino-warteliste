@@ -50,6 +50,7 @@ html.lauf .marke .auftritt { opacity: 1; }
 main { position: relative; flex-grow: 1; margin-top: 16px; display: flex; align-items: stretch; gap: 40px 96px; }
 .spalte { position: relative; flex: 0 1 560px; min-width: 0; display: flex; flex-direction: column; justify-content: space-evenly; gap: 16px; padding: 4px 0 12px; }
 @container (min-width: 900px) { .spalte { justify-content: flex-start; gap: 24px; } }
+@container (min-width: 1100px) { main { justify-content: center; } }
 .gruppe { display: flex; flex-direction: column; gap: 12px; }
 .gruppe-eng { gap: 8px; }
 h1 { margin: 0; font-family: var(--serif); font-weight: 800; font-size: clamp(28px, 22px + 2.6cqw, 44px); line-height: 1.04; letter-spacing: -0.02em; }
@@ -76,7 +77,12 @@ html.bewegt .kachel .hebe img { visibility: hidden; }
 html.bewegt.los .kachel .hebe img { visibility: visible; }
 
 /* Konfetti */
-.konf { position: absolute; display: block; pointer-events: none; }
+.konf { position: absolute; left: var(--l); top: var(--t); display: block; pointer-events: none; }
+/* Ab 1100 px: drei Stücke links, drei rechts der Spalte, mindestens 48 px Luft zum Text */
+@container (min-width: 1100px) {
+  .konf-r { left: calc(50% + 280px + 48px + var(--d)); top: var(--t2); }
+  .konf-l { left: auto; right: calc(50% + 280px + 48px + var(--d)); top: var(--t2); }
+}
 .konf i { display: block; width: 100%; height: 100%; box-shadow: 0 1px 2px rgba(21, 19, 16, .18), 0 4px 10px rgba(21, 19, 16, .06); background-image: linear-gradient(135deg, rgba(255, 255, 255, .18), rgba(0, 0, 0, .08)); }
 @container (max-width: 760px) { .konf { display: none; } }
 @media (max-height: 560px) { .konf { display: none; } }
