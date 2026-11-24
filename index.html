@@ -23,55 +23,86 @@
   <meta property="og:image:alt" content="Polpino, eine lila Papierkrake mit Headset, über dem Schriftzug polpino">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/fraunces-soft-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="start/start.css">
-  <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.className = 'start';</script>
-  <noscript><style>html.start .marke { transform: none; } html.start .figur .schleife { opacity: 1; }</style></noscript>
-  <script src="start/start.js" defer></script>
+  <link rel="stylesheet" href="start/seite.css">
+  <script src="start/seite.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#inhalt">Zum Inhalt</a>
-
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<div class="seite">
   <header class="kopf">
     <div class="marke-zeile">
-      <div class="figur" aria-hidden="true">
-        <picture>
-          <source media="(prefers-reduced-motion: reduce)" srcset="assets/img/start/polpino-ruhe.webp">
-          <img class="schleife" src="assets/img/start/polpino-schleife.webp" width="50" height="50" alt="">
-        </picture>
+      <div class="figur" data-auftritt aria-hidden="true">
+        <img class="schleife" src="start/img/polpino-ruhe.webp" data-schleife="start/img/polpino-schleife.webp" width="50" height="50" alt="">
       </div>
-      <a class="marke" href="./" aria-label="Polpino, Startseite">polpino</a>
+      <a class="marke" href="/" aria-label="Polpino Startseite"><img class="logo" src="start/img/polpino-logo.svg" alt="polpino" width="79" height="28"></a>
     </div>
-    <nav class="konto" aria-label="Beta">
-      <a href="beta.html">Beta-Tester werden</a>
+    <!-- Bis zur Beta ausgeblendet, anmelden.html bleibt direkt erreichbar.
+    <nav class="konto" aria-label="Konto">
+      <a href="entwurf/anmelden.html">Anmelden</a>
+      <a class="nur-breit" href="entwurf/anmelden.html">Einladung einlösen</a>
     </nav>
+    -->
   </header>
 
-  <main id="inhalt">
-    <div class="saetze">
-      <h1>Polpino ist eine KI-Assistenz, die für dich telefoniert.</h1>
-      <p>Du schreibst in WhatsApp, was zu erledigen ist. Polpino ruft an, wartet in der Warteschleife und schreibt dir das Ergebnis zurück.</p>
-      <p>Was schiebst du gerade vor dir her? <a class="bsp" href="#chat" data-frage="Zahnarzt nächste Woche, gern vormittags." data-antwort="Dienstag 10:30 bei Dr. Weber. Steht im Kalender.">Den Zahnarzttermin</a>, <a class="bsp" href="#chat" data-frage="Freitag 19:30, Tisch für vier im Da Marco." data-antwort="Reserviert auf deinen Namen. Steht im Kalender.">den Tisch für Freitag</a>, <a class="bsp" href="#chat" data-frage="Der Sanitär soll wegen dem tropfenden Hahn vorbeikommen." data-antwort="Firma Keller kommt Donnerstag zwischen 8 und 10 Uhr.">den Handwerker</a>, <a class="bsp" href="#chat" data-frage="Frag beim Internetanbieter, wann der Techniker kommt." data-antwort="22 Minuten Warteschleife. Der Techniker kommt Montag zwischen 13 und 15 Uhr.">die Hotline</a> oder <a class="bsp" href="#chat" data-frage="Coiffeur von Mittwoch auf nächste Woche schieben." data-antwort="Verschoben auf Dienstag, 17:00. Der Kalender ist angepasst.">den Coiffeur</a>?</p>
-      <p>Polpino gibt sich nie als Mensch aus, und ohne dein Ja ruft er niemanden an. Die erste Testrunde startet bald.</p>
-      <a class="weiter" href="beta.html">Beta-Tester werden <svg aria-hidden="true" width="9" height="16" viewBox="0 0 9 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1.5 3l5 5-5 5"/></svg></a>
+  <main id="inhalt" class="inhalt">
+    <h1 class="titel">Ein Kontakt in WhatsApp, <em>der für dich telefoniert.</em></h1>
+    <div class="linie" aria-hidden="true"></div>
+    <p class="satz satz-eins">Polpino ist eine KI-Assistenz. Du schreibst, was du brauchst. Polpino ruft an, bleibt dran und meldet sich mit dem Ergebnis.</p>
+    <div class="frage-zeile">
+      <h2 class="frage">Acht Arme. Was darf Polpino erledigen?</h2>
+      <p class="tipp"><span class="nur-handy">Tipp an und schau zu.</span><span class="nur-desktop">Fahr mit der Maus drüber oder tipp an.</span></p>
     </div>
-
-    <div class="chat-platz" aria-live="polite">
-      <div class="chat" id="chat" hidden>
-        <div class="chat-kopf">
-          <span class="chat-bild"><img src="assets/img/favicon.svg" width="18" height="18" alt=""></span>
-          <span class="chat-name">Polpino <span>KI-Assistenz</span></span>
-          <span class="chat-marke">Beispiel</span>
-        </div>
-        <p class="blase blase-du" id="chat-frage"></p>
-        <p class="blase blase-polpino" id="chat-antwort"></p>
+    <div class="reihe" id="reihe">
+      <button type="button" class="arm" data-arm="0"><span class="arm-bild"><img src="start/img/ikon-termin.webp" alt="" width="240" height="240"></span><span class="arm-name">Termin holen</span></button>
+      <button type="button" class="arm" data-arm="1"><span class="arm-bild"><img src="start/img/ikon-coiffeur.webp" alt="" width="240" height="240"></span><span class="arm-name">Absagen</span></button>
+      <button type="button" class="arm" data-arm="2"><span class="arm-bild"><img src="start/img/ikon-handwerker.webp" alt="" width="240" height="240"></span><span class="arm-name">Abklären</span></button>
+      <button type="button" class="arm" data-arm="3"><span class="arm-bild"><img src="start/img/ikon-warteschleife.webp" alt="" width="240" height="240"></span><span class="arm-name">Warteschleife</span></button>
+      <button type="button" class="arm" data-arm="4"><span class="arm-bild"><img src="start/img/ikon-paket.webp" alt="" width="240" height="240"></span><span class="arm-name">Auskunft</span></button>
+      <button type="button" class="arm" data-arm="5"><span class="arm-bild"><img src="start/img/ikon-hotline.webp" alt="" width="240" height="240"></span><span class="arm-name">Dranbleiben</span></button>
+      <button type="button" class="arm" data-arm="6"><span class="arm-bild"><img src="start/img/ikon-rueckruf.webp" alt="" width="240" height="240"></span><span class="arm-name">Rückruf</span></button>
+      <button type="button" class="arm" data-arm="7"><span class="arm-bild"><img src="start/img/ikon-foto.webp" alt="" width="240" height="240"></span><span class="arm-name">Foto genügt</span></button>
+    </div>
+    <section class="buehne" id="buehne" aria-live="off" aria-labelledby="buehne-titel">
+      <div class="buehne-text">
+        <p class="arm-zahl" id="buehne-zahl"></p>
+        <h3 class="buehne-titel" id="buehne-titel"></h3>
+        <p class="buehne-unter" id="buehne-unter"></p>
       </div>
-    </div>
+      <div class="buehne-chat" id="buehne-chat"></div>
+    </section>
+    <div class="trenn" aria-hidden="true"></div>
+    <p class="steuer">Nur die Steuererklärung bleibt bei dir.</p>
+    <p class="satz satz-zwei">Polpino gibt sich nie als Mensch aus, und ohne dein Ja ruft er niemanden an. Die Beta startet bald in der Schweiz.</p>
+    <a class="weiter" href="https://wa.me/41445055667?text=Hey%20Polpino%2C%20ich%20will%20auf%20die%20Warteliste%21%20%F0%9F%90%99" rel="noopener">Schreib Polpino <svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l6 6-6 6"/></svg></a>
   </main>
 
   <footer class="fuss">
-    <span>© 2026 Aigency AG, Zürich</span>
+    <span>© 2026 Aigency AG</span>
     <a href="datenschutz.html">Datenschutz</a>
     <a href="impressum.html">Impressum</a>
   </footer>
+</div>
+
+<div class="ueber" id="ueber" role="dialog" aria-modal="true" aria-labelledby="ueber-name" hidden>
+  <div class="ueber-rahmen">
+    <div class="ueber-titel">
+      <p class="arm-zahl" id="ueber-zahl"></p>
+      <h2 class="ueber-name" id="ueber-name">Beispiel</h2>
+      <p class="ueber-unter" id="ueber-unter"></p>
+    </div>
+    <div class="handy auf" id="handy">
+      <div class="handy-innen">
+        <div class="schirm">
+          <div class="chat-kopf">
+            <span class="chat-bild"><img src="start/img/polpino.webp" alt="" width="24" height="24" loading="lazy"></span>
+            <span class="chat-name">Polpino<span>KI-Assistenz</span></span>
+          </div>
+          <div class="verlauf" id="verlauf" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="zu" id="zu" aria-label="Beispiel schliessen"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+  </div>
+</div>
 </body>
 </html>
