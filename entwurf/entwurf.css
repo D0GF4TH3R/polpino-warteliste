@@ -1,4 +1,5 @@
-/* Polpino Startseite, Entwurf 24.11.2026 (Magazin-Look, eine Bildschirmhöhe). Quelle: Canvas «Polpino Startseite, leise Fassung». */
+/* Polpino Startseite, Entwurf «acht Arme» 24.11.2026. Quelle: Mockup «acht Arme» (Handy und Desktop), von Dominic abgenommen.
+   Handy-Muster unter 900 px (Raster 4 × 2, Origami-Overlay), Desktop ab 900 px (Reihe mit Dock-Effekt, Bühne darunter). */
 @font-face { font-family: "Fraunces Soft"; font-style: normal; font-weight: 400 900; font-display: swap; src: url("../assets/fonts/fraunces-soft-latin.woff2") format("woff2-variations"); }
 @font-face { font-family: "Fraunces Soft"; font-style: italic; font-weight: 600 900; font-display: swap; src: url("fonts/fraunces-italic.woff2") format("woff2-variations"); }
 @font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("../assets/fonts/inter-tight-latin-wght-normal.woff2") format("woff2-variations"); }
@@ -7,8 +8,8 @@
   --tinte: #151310; --leise: #5B6366; --rauchblau: #3D5A6D; --seegruen: #335754; --lila: #8C5DA7; --linie: #E3E1DB;
   --papier: #FAFAF8; --karte: #FFF;
   --schirm: #F1F0EC; --blase-du: #DCEDE6; --chat-bild: #EFE7F4; --status: #E4EDE9; --lampe: #2BE05C; --funke: #F5C542; --feldrand: #878A89;
+  --blase-hell: #E3EAEE; --zeile-grau: #C9C7C0;
   --serif: "Fraunces Soft", Georgia, serif; --sans: "Inter Tight", system-ui, sans-serif;
-  --ikon: min(72px, 19vw);
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
@@ -22,92 +23,121 @@ a:hover { color: var(--rauchblau); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* .seite ist durch container-type ein Stapelkontext und trägt darum die Textur selbst (deckungsgleich mit body, beginnt bei 0,0):
-   nur so multiplizieren Faltfilme und Krake mit dem Papier statt mit Transparenz. */
-.seite { container-type: inline-size; position: relative; min-height: 100vh; min-height: 100dvh; padding: 16px 24px 8px; display: flex; flex-direction: column; }
+   nur so multipliziert die Krake mit dem Papier statt mit Transparenz. */
+.seite { container-type: inline-size; position: relative; min-height: 100vh; min-height: 100dvh; padding: 28px 24px 32px; display: flex; flex-direction: column; gap: 22px; }
 
-/* Kopf mit Figur und Wortmarke */
+/* Kopf mit Figur und Wortmarke. Die ganze Markenzeile wird gezoomt, damit Auftritt-Clip und Wortmarke deckungsgleich bleiben. */
 .kopf { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.marke-zeile { position: relative; display: flex; align-items: center; min-height: 44px; }
+.marke-zeile { position: relative; display: flex; align-items: center; min-height: 44px; zoom: 1.25; }
 .figur { position: relative; flex: none; width: 46px; height: 34px; pointer-events: none; }
 .figur img { position: absolute; right: 2px; top: -8px; width: 50px; height: 50px; max-width: none; mix-blend-mode: multiply; }
 .marke { position: relative; display: block; padding: 4px 0; }
 .marke .logo { display: block; height: 28px; width: auto; }
 .marke .auftritt { position: absolute; left: -130px; top: -7px; width: 214px; height: 50px; max-width: none; mix-blend-mode: multiply; pointer-events: none; opacity: 0; }
-/* Sicherheitsnetz: Bis entwurf.js die Klasse bewegt setzt, sind Figur, Kacheln und Konfetti verdeckt,
-   damit nichts aufblitzt. Kommt das Skript nicht, wird nach spätestens 3 s alles ruhig sichtbar. */
+/* Sicherheitsnetz: Bis entwurf.js die Klasse bewegt setzt, ist die Figur verdeckt, damit nichts aufblitzt.
+   Kommt das Skript nicht, wird sie nach spätestens 3 s ruhig sichtbar. */
 @keyframes verdeckt { from, to { width: 0; opacity: 0; } }
-@keyframes blass { from, to { opacity: 0; } }
-@media (prefers-reduced-motion: no-preference) {
-  .figur[data-auftritt] { animation: verdeckt 3s step-end; }
-  .kachel .hebe img, .konf { animation: blass 3s step-end backwards; }
-}
+@media (prefers-reduced-motion: no-preference) { .figur[data-auftritt] { animation: verdeckt 3s step-end; } }
 html.bewegt .figur { width: 0; animation: none; }
-html.bewegt .kachel .hebe img { animation: none; }
 html.bewegt .figur .schleife { opacity: 0; }
 html.lauf .figur, html.ruhe .figur { width: 46px; }
 html.lauf .marke .logo { opacity: 0; }
 html.lauf .marke .auftritt { opacity: 1; }
-.konto { display: flex; gap: 24px; font-size: 14px; line-height: 20px; }
+.konto { display: flex; gap: 24px; font-size: 15px; line-height: 20px; font-weight: 500; }
 .konto a { display: inline-block; padding: 12px 0; text-underline-offset: 3px; }
-@container (max-width: 520px) { .nur-breit { display: none !important; } }
 
-/* Inhalt */
-main { position: relative; flex-grow: 1; margin-top: 16px; display: flex; align-items: stretch; gap: 40px 96px; }
-.spalte { position: relative; flex: 0 1 560px; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; padding: 4px 0 12px; }
-@container (min-width: 900px) { .spalte { justify-content: flex-start; gap: 24px; } }
-@container (min-width: 1100px) { main { justify-content: center; } }
-.gruppe { display: flex; flex-direction: column; gap: 12px; }
-.gruppe-eng { gap: 8px; }
-h1 { margin: 0; font-family: var(--serif); font-weight: 800; font-size: clamp(28px, 22px + 2.6cqw, 44px); line-height: 1.04; letter-spacing: -0.02em; text-wrap: balance; }
-h1 em { font-style: italic; font-weight: 700; color: var(--rauchblau); }
-.linie { height: 2px; background: var(--tinte); max-width: 440px; transform-origin: 0 50%; }
-.satz { margin: 0; font-family: var(--serif); font-size: clamp(16px, 14px + 0.7cqw, 23px); line-height: 1.38; letter-spacing: -0.005em; text-wrap: pretty; }
-.frage { margin: 0; font-family: var(--serif); font-weight: 700; font-size: clamp(19px, 16px + 0.9cqw, 28px); line-height: 1.2; }
-.steuer { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 600; color: var(--rauchblau); font-size: clamp(17px, 15px + 0.6cqw, 22px); line-height: 1.3; }
-.tipp { margin: 0; font-family: var(--sans); font-size: 14px; line-height: 20px; color: var(--leise); }
-.weiter { align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 17px; line-height: 22px; font-weight: 600; text-decoration-thickness: 2px; text-decoration-color: var(--lila); text-underline-offset: 0.24em; }
-.weiter img { width: 40px; height: 40px; display: block; }
+/* Inhalt, Handy-Muster: eine Spalte, Blockabstand 22 px, höchstens 560 px breit */
+.inhalt { display: flex; flex-direction: column; gap: 22px; max-width: 560px; }
+.titel { margin: 0; font-family: var(--serif); font-weight: 800; font-size: 31px; line-height: 1.1; letter-spacing: -0.01em; text-wrap: balance; }
+.titel em { font-style: italic; font-weight: 700; color: var(--rauchblau); }
+.linie { height: 2px; background: var(--tinte); transform-origin: 0 50%; }
+.satz { margin: 0; font-family: var(--serif); font-size: 17px; line-height: 1.42; text-wrap: pretty; }
+.frage-zeile { display: flex; flex-direction: column; gap: 4px; }
+.frage { margin: 0; font-family: var(--serif); font-weight: 700; font-size: 19px; line-height: 1.25; }
+.tipp { margin: 0; font-size: 13px; line-height: 20px; color: var(--leise); }
+.nur-desktop { display: none; }
+.steuer { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 17px; line-height: 1.35; color: var(--rauchblau); }
+.weiter { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: underline; text-decoration-color: var(--lila); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.weiter svg { flex: none; }
+.buehne, .trenn { display: none; }
 
-/* Kacheln */
-.raster { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 8px; }
-@container (min-width: 900px) { .raster { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
-.kachel { display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 44px; padding: 2px 0; background: none; border: 0; cursor: pointer; font: inherit; color: var(--tinte); }
-.kachel:focus-visible { outline: 2px solid var(--lila); outline-offset: 4px; border-radius: 6px; }
-.hebe { display: block; width: var(--ikon); height: var(--ikon); }
-/* Die Filme haben weissen Grund und multiplizieren mit dem Papier. Der Hover-Transform sitzt auf dem Bild selbst,
-   ein Transform auf .hebe würde das Bild vom Papier isolieren. */
-.hebe img { display: block; width: 100%; height: 100%; mix-blend-mode: multiply; transition: transform .25s cubic-bezier(.3, .7, .3, 1); }
-.kachel:hover .hebe img { transform: translateY(-4px) rotate(-4deg); }
-.name { font-size: 13.5px; line-height: 17px; font-weight: 500; transition: color .2s; }
-.kachel:hover .name { color: var(--lila); }
-html.bewegt .kachel .hebe img { visibility: hidden; }
-html.bewegt.los .kachel .hebe img { visibility: visible; }
-
-/* Konfetti */
-/* Konfetti nur ab 1100 px: drei Stücke links, drei rechts der Spalte, mindestens 48 px Luft zum Text */
-.konf { position: absolute; top: var(--t); display: none; pointer-events: none; }
-@container (min-width: 1100px) {
-  .konf { display: block; }
-  .konf-r { left: calc(50% + 280px + 48px + var(--d)); }
-  .konf-l { right: calc(50% + 280px + 48px + var(--d)); }
-}
-.konf i { display: block; width: 100%; height: 100%; box-shadow: 0 1px 2px color-mix(in srgb, var(--tinte) 18%, transparent), 0 4px 10px color-mix(in srgb, var(--tinte) 6%, transparent); background-image: linear-gradient(135deg, color-mix(in srgb, var(--karte) 18%, transparent), color-mix(in srgb, var(--tinte) 8%, transparent)); }
-@media (max-height: 560px) { .konf { display: none; } }
-@keyframes fall { 0% { opacity: 0; transform: translateY(-60px) rotate(140deg); } 70% { opacity: 1; } 100% { opacity: 1; transform: none; } }
-html.bewegt .konf { opacity: 0; animation: none; }
-html.bewegt.los .konf { animation: fall .9s cubic-bezier(.2, .7, .3, 1) both; }
+/* Die acht Arme, Handy: Raster 4 × 2 */
+.reihe { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 4px; }
+.arm { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; padding: 6px 0 4px; margin: 0; background: none; border: 0; border-radius: 8px; cursor: pointer; font: inherit; color: var(--tinte); }
+.arm:focus-visible { outline: 2px solid var(--lila); outline-offset: 2px; }
+.arm-bild { display: block; transform-origin: 50% 100%; }
+.arm img { display: block; width: 64px; height: 64px; transform-origin: 50% 100%; transition: transform .2s; }
+.arm:active img { transform: scale(.92); }
+.arm-name { font-size: 12px; line-height: 16px; text-align: center; }
 
 /* Text blendet weich ein */
 @keyframes ein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-html.bewegt .spalte { animation: ein .7s ease-out backwards; } /* backwards: nach dem Ende keine Isolation, sonst kein multiply */
+html.bewegt .inhalt { animation: ein .7s ease-out backwards; }
 @keyframes linie { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 html.bewegt .linie { animation: linie .7s cubic-bezier(.3, .7, .3, 1) .15s both; }
 
-/* Fuss */
-.fuss { position: relative; margin-top: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 0 16px; font-size: 12px; line-height: 16px; color: var(--leise); }
-.fuss span, .fuss a { display: inline-block; padding: 14px 0; text-underline-offset: 3px; }
+/* Fuss: Zeilen 20 px, Links mit 12 px Polster für 44 px Tippfläche */
+.fuss { display: flex; flex-wrap: wrap; align-items: center; gap: 0 20px; font-size: 13px; line-height: 20px; color: var(--leise); }
+.fuss span, .fuss a { display: inline-block; padding: 12px 0; text-underline-offset: 3px; }
 
-/* Overlay mit Papierhandy */
+/* Desktop ab 900 px: Inhalt höchstens 1'120 px mittig, Reihe mit Dock-Effekt, Bühne statt Overlay */
+@media (min-width: 900px) {
+  .seite { padding: 36px clamp(24px, 5vw, 72px) 44px; gap: 32px; }
+  .kopf, .inhalt, .fuss { width: 100%; max-width: 1120px; margin-inline: auto; }
+  .marke-zeile { zoom: 1.4; }
+  .nur-handy { display: none; }
+  .nur-desktop { display: inline; }
+
+  /* Drei Spalten wie die Flex-Verteilung im Mockup bei 1'120 px: Titel 618 | Satz 438, unten kursive Zeile 475 | Satz 581 */
+  .inhalt { display: grid; grid-template-columns: minmax(0, 475fr) minmax(0, 79fr) minmax(0, 438fr); column-gap: 64px; row-gap: 0;
+    grid-template-areas: "titel titel satz" "titel titel weiter" "linie linie linie" "frage frage frage" "reihe reihe reihe" "buehne buehne buehne" "trenn trenn trenn" "steuer satz2 satz2"; }
+  .titel { grid-area: titel; align-self: end; font-size: clamp(38px, 4.4vw, 54px); line-height: 1.05; text-wrap: wrap; }
+  .satz-eins { grid-area: satz; align-self: end; font-size: 21px; line-height: 1.35; }
+  .weiter { grid-area: weiter; align-self: end; margin-top: 12px; font-size: 20px; }
+  .linie { grid-area: linie; margin-top: 32px; }
+  .frage-zeile { grid-area: frage; margin-top: 32px; flex-direction: row; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 24px; }
+  .frage { font-size: 28px; line-height: 1.2; }
+  .tipp { font-size: 14px; }
+  .reihe { grid-area: reihe; margin-top: 12px; padding-top: 30px; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; }
+  .arm { gap: 6px; }
+  .arm img { width: 88px; height: 88px; transition: transform .25s cubic-bezier(.3, .7, .2, 1); }
+  .arm-name { font-size: 14px; line-height: 20px; color: var(--leise); }
+  .arm[aria-pressed="true"] .arm-name { font-weight: 600; color: var(--tinte); }
+  /* Gewählt 112 %, sonst 90 %; unter der Maus zusätzlich 116 %, Nachbarn 107 % (Dock), Ursprung Unterkante */
+  html.js .arm-bild { transform: scale(.9); transition: transform .25s cubic-bezier(.3, .7, .2, 1); }
+  html.js .arm[aria-pressed="true"] .arm-bild { transform: scale(1.12); }
+  .arm:active img { transform: none; }
+  .arm:hover img { transform: scale(1.16); }
+  .arm:hover + .arm img, .arm:has(+ .arm:hover) img { transform: scale(1.07); }
+  .satz-zwei { grid-area: satz2; margin-top: 24px; font-size: 19px; line-height: 1.4; }
+  .steuer { grid-area: steuer; margin-top: 24px; font-size: 26px; line-height: 1.25; }
+
+  /* Bühne: links Arm und Titel, rechts der Kurz-Chat; feste Mindesthöhe, damit nichts springt */
+  html.js .buehne { grid-area: buehne; margin-top: 32px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px 64px; min-height: 216px; padding-top: 28px; border-top: 1px solid var(--linie); }
+  /* Unter 1'100 px ist die Chatspalte schmaler, die längste Ergebnisblase (Arm 3) braucht dann mehr Höhe */
+  @media (max-width: 1099.98px) { html.js .buehne { min-height: 240px; } }
+  .trenn { grid-area: trenn; display: block; margin-top: 32px; height: 1px; background: var(--linie); }
+  .buehne-text { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .buehne .arm-zahl { font-size: 13px; line-height: 18px; }
+  .buehne-titel { margin: 0; font-family: var(--serif); font-weight: 800; font-size: 36px; line-height: 1.1; }
+  .buehne-unter { margin: 0; font-size: 19px; line-height: 28px; color: var(--leise); }
+  .buehne-chat { flex: 1.3 1 380px; min-width: 0; max-width: 520px; display: flex; flex-direction: column; gap: 10px; }
+  .kurz-blase { align-self: flex-start; max-width: 82%; margin: 0; padding: 9px 14px; border: 1px solid var(--linie); border-radius: 8px; background: var(--karte); font-size: 16px; line-height: 23px; }
+  .kurz-du { align-self: flex-end; background: var(--blase-hell); }
+  .kurz-anhang { display: block; font-size: 13px; line-height: 18px; color: var(--leise); }
+  .kurz-status { align-self: flex-start; display: flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; line-height: 20px; color: var(--leise); }
+  .kurz-punkt { flex: none; width: 8px; height: 8px; border-radius: 999px; background: var(--lampe); animation: puls 1s ease-in-out infinite; }
+  .kurz-punkt.fertig { background: var(--seegruen); animation: none; }
+  .rein { animation: rein .35s ease-out both; }
+
+  .fuss { gap: 6px 24px; }
+}
+@keyframes rein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* Zähler «Arm 1 von 8» (Overlay und Bühne) */
+.arm-zahl { margin: 0; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--leise); }
+
+/* Overlay mit Papierhandy (Handy-Muster) */
 /* Handy nie unter 80 % (461.6 px), der Rest scrollt im Overlay */
 .ueber { --h: max(461.6px, min(577px, calc(100vh - 32px), calc((100vw - 32px) * 577 / 300))); position: fixed; inset: 0; z-index: 50; display: flex; overflow: auto; overscroll-behavior: contain; padding: 16px; }
 /* Grund auf ::before (ohne backdrop-filter, der in Safari flimmert); .ueber bleibt so auch kein Bezugsrahmen für fixed */
@@ -116,7 +146,11 @@ html.bewegt .linie { animation: linie .7s cubic-bezier(.3, .7, .3, 1) .15s both;
 @keyframes auf { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .auf { animation: auf .35s ease-out both; }
 @supports (height: 100dvh) { .ueber { --h: max(461.6px, min(577px, calc(100dvh - 32px), calc((100vw - 32px) * 577 / 300))); } }
-.buehne { margin: auto; display: flex; flex-direction: column; align-items: flex-end; }
+.ueber-rahmen { margin: auto; display: flex; flex-direction: column; align-items: flex-end; }
+/* Titelzeile über dem Handy, linksbündig zur Handybreite */
+.ueber-titel { align-self: stretch; width: calc(var(--h) * 300 / 577); margin-bottom: 18px; display: flex; flex-direction: column; gap: 2px; }
+.ueber-name { margin: 0; font-family: var(--serif); font-weight: 700; font-size: 24px; line-height: 1.15; }
+.ueber-unter { margin: 0; font-size: 15px; line-height: 21px; color: var(--leise); }
 .handy { position: relative; flex: none; height: var(--h); aspect-ratio: 300 / 577; }
 /* handy.webp enthält den Schatten (0 18px 28px Tinte 16 %, 0 3px 6px Tinte 10 %) mit Rand 32/48/72/48 px; kein filter mehr,
    der in Safari bei jeder neuen Blase flimmert. Als border-image mit outset: der Schatten ragt über die Box hinaus,
@@ -136,7 +170,6 @@ html.bewegt .linie { animation: linie .7s cubic-bezier(.3, .7, .3, 1) .15s both;
 .status { align-self: center; display: flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: var(--status); color: var(--seegruen); font-size: 11px; line-height: 15px; }
 @keyframes puls { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
 .lampe { width: 7px; height: 7px; border-radius: 2px; background: var(--lampe); display: block; animation: puls 1s ease-in-out infinite; }
-.espresso { align-self: center; width: 38px; height: auto; display: block; }
 .kalender { align-self: flex-start; max-width: 92%; display: flex; align-items: center; gap: 8px; background: var(--karte); border-radius: 10px; padding: 7px 10px; }
 .kalender svg { flex: none; color: var(--rauchblau); }
 .kalender b { display: block; font-size: 11.5px; line-height: 15px; color: var(--seegruen); font-weight: 600; letter-spacing: 0; text-transform: none; }
@@ -146,6 +179,16 @@ html.bewegt .linie { animation: linie .7s cubic-bezier(.3, .7, .3, 1) .15s both;
 .paletti strong { font-family: var(--serif); font-size: 17px; font-weight: 700; }
 @keyframes funke { 0% { opacity: 0; transform: scale(.2); } 50% { opacity: 1; transform: scale(1.3); } 100% { opacity: 1; transform: scale(1); } }
 .funke { position: absolute; background: var(--funke); animation: funke .5s ease-out both; }
+/* Briefbild (Arm 8) aus CSS: weisses Kärtchen, rauchblauer Balken, drei graue Linien */
+.brief { display: flex; flex-direction: column; gap: 5px; width: 128px; margin-bottom: 6px; padding: 10px; background: var(--karte); border: 1px solid var(--linie); border-radius: 4px; }
+.brief span { display: block; height: 2px; background: var(--zeile-grau); }
+.brief .brief-kopf { width: 46px; height: 3px; background: var(--rauchblau); }
+.brief .brief-kurz { width: 70%; }
+/* Frage mit zwei Knöpfen: nur Bild, sie tun nichts */
+.rueckfrage { align-self: flex-start; max-width: 88%; display: flex; flex-direction: column; gap: 7px; margin: 0; padding: 7px 10px 9px; background: var(--karte); border-radius: 10px; }
+.scheinknoepfe { display: flex; gap: 6px; }
+.scheinknopf { border: 1px solid var(--rauchblau); border-radius: 999px; padding: 4px 12px; font-size: 11.5px; line-height: 15px; font-weight: 500; color: var(--rauchblau); }
+.scheinknopf.ja { background: var(--rauchblau); color: var(--papier); }
 .zu { position: fixed; z-index: 1; top: 16px; right: 16px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--karte); border: 1px solid var(--linie); border-radius: 999px; cursor: pointer; color: var(--tinte); }
 /* Schmal: Schliessknopf über dem Handy statt in der Ecke */
 @media (max-width: 479px) {
@@ -157,33 +200,14 @@ html.bewegt .linie { animation: linie .7s cubic-bezier(.3, .7, .3, 1) .15s both;
 /* Anmeldung */
 .anmeldung { flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 40px 0; }
 .anmeldung .karte { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 24px; }
-.anmeldung h1 { font-size: 28px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; }
+.anmeldung h1 { margin: 0; font-family: var(--serif); font-size: 28px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; }
 .anmeldung .leise { margin: 0; font-size: 14px; line-height: 20px; color: var(--leise); }
 .feld { display: flex; align-items: center; height: 52px; border: 1px solid var(--feldrand); border-radius: 8px; background: var(--karte); }
 .feld span { padding: 0 12px 0 16px; font-size: 17px; color: var(--leise); border-right: 1px solid var(--linie); }
 .feld input { flex-grow: 1; min-width: 0; height: 100%; padding: 0 16px 0 12px; border: 0; border-radius: 0 8px 8px 0; background: transparent; font: inherit; font-size: 17px; color: var(--tinte); }
 .knopf { height: 52px; border: 0; border-radius: 8px; background: var(--tinte); color: var(--papier); font: inherit; font-size: 16px; font-weight: 500; cursor: pointer; }
 
-/* Hohe Bildschirme: alles passt in eine Bildschirmhöhe. Darunter feste Werte, die Seite darf scrollen. */
-@media (min-height: 700px) {
-  :root { --ikon: min(clamp(44px, 8.2vh, 84px), 19vw); }
-  .seite { padding: clamp(8px, 1.8vh, 20px) 24px clamp(4px, 1vh, 12px); }
-  main { margin-top: clamp(6px, 2.4vh, 44px); }
-  .spalte { gap: 0; padding: 0.5vh 0 1.5vh; }
-  /* Unter 900 px Containerbreite: etwas mehr Luft vor «Was darf Polpino erledigen?»; space-between lässt unter dem Knopf kein Loch */
-  .gruppe-frage { margin-top: 12px; }
-  @container (min-width: 900px) { .gruppe-frage { margin-top: 0; } }
-  @container (min-width: 900px) { .spalte { gap: clamp(14px, 2.6vh, 30px); } }
-  .gruppe { gap: clamp(6px, 1.3vh, 16px); }
-  .gruppe-eng { gap: clamp(4px, 1vh, 12px); }
-  h1 { font-size: min(clamp(31px, 22px + 2.6cqw, 56px), 5.6vh); }
-  .satz { font-size: min(clamp(17px, 14px + 0.7cqw, 23px), 2.5vh); }
-  .frage { font-size: min(clamp(20px, 16px + 0.9cqw, 28px), 3.3vh); }
-  .steuer { font-size: min(clamp(18px, 15px + 0.6cqw, 22px), 2.6vh); }
-  .raster { gap: clamp(4px, 1.2vh, 18px) 8px; }
-  .fuss { margin-top: clamp(2px, 1vh, 16px); }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
+  .arm:hover img, .arm:hover + .arm img, .arm:has(+ .arm:hover) img, .arm:active img { transform: none; }
 }

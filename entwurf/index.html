@@ -42,38 +42,36 @@
     -->
   </header>
 
-  <main id="inhalt">
-    <span aria-hidden="true" class="konf konf-r" style="--d: 72px; --t: 6%; width: 22px; height: 22px; animation-delay: 120ms"><i style="background-color: var(--lila); transform: rotate(16deg)"></i></span>
-    <span aria-hidden="true" class="konf konf-l" style="--d: 40px; --t: 16%; width: 17px; height: 17px; animation-delay: 240ms"><i style="background-color: var(--rauchblau); transform: rotate(-14deg)"></i></span>
-    <span aria-hidden="true" class="konf konf-r" style="--d: 24px; --t: 46%; width: 26px; height: 26px; animation-delay: 360ms"><i style="background-color: var(--seegruen); transform: rotate(9deg)"></i></span>
-    <span aria-hidden="true" class="konf konf-l" style="--d: 120px; --t: 56%; width: 15px; height: 15px; animation-delay: 480ms"><i style="background-color: var(--lila); transform: rotate(32deg)"></i></span>
-    <span aria-hidden="true" class="konf konf-r" style="--d: 136px; --t: 78%; width: 19px; height: 19px; animation-delay: 600ms"><i style="background-color: var(--rauchblau); transform: rotate(-24deg)"></i></span>
-    <span aria-hidden="true" class="konf konf-l" style="--d: 64px; --t: 86%; width: 21px; height: 21px; animation-delay: 720ms"><i style="background-color: var(--seegruen); transform: rotate(22deg)"></i></span>
-
-    <div class="spalte">
-      <div class="gruppe">
-        <h1>Ein Kontakt in WhatsApp, <em>der für dich telefoniert.</em></h1>
-        <div class="linie" aria-hidden="true"></div>
-      </div>
-      <p class="satz">Polpino ist eine KI-Assistenz. Du schreibst, was du brauchst. Polpino ruft an, bleibt dran und meldet sich mit dem Ergebnis.</p>
-      <div class="gruppe gruppe-frage">
-        <p class="frage">Was darf Polpino erledigen?</p>
-        <p class="tipp">Tipp an und schau zu.</p>
-        <div class="raster">
-          <button type="button" class="kachel" data-bsp="zahnarzt" aria-haspopup="dialog" aria-label="Beispiel Zahnarzt ansehen"><span class="hebe"><img src="img/ikon-zahnarzt.webp" data-film="img/film-zahnarzt.webp" alt="" width="84" height="84"></span><span class="name">Zahnarzt</span></button>
-          <button type="button" class="kachel" data-bsp="restaurant" aria-haspopup="dialog" aria-label="Beispiel Restaurant ansehen"><span class="hebe"><img src="img/ikon-restaurant.webp" data-film="img/film-restaurant.webp" alt="" width="84" height="84"></span><span class="name">Restaurant</span></button>
-          <button type="button" class="kachel" data-bsp="handwerker" aria-haspopup="dialog" aria-label="Beispiel Handwerker ansehen"><span class="hebe"><img src="img/ikon-handwerker.webp" data-film="img/film-handwerker.webp" alt="" width="84" height="84"></span><span class="name">Handwerker</span></button>
-          <button type="button" class="kachel" data-bsp="coiffeur" aria-haspopup="dialog" aria-label="Beispiel Coiffeur ansehen"><span class="hebe"><img src="img/ikon-coiffeur.webp" data-film="img/film-coiffeur.webp" alt="" width="84" height="84"></span><span class="name">Coiffeur</span></button>
-          <button type="button" class="kachel" data-bsp="hotline" aria-haspopup="dialog" aria-label="Beispiel Hotline ansehen"><span class="hebe"><img src="img/ikon-hotline.webp" data-film="img/film-hotline.webp" alt="" width="84" height="84"></span><span class="name">Hotline</span></button>
-          <button type="button" class="kachel" data-bsp="paket" aria-haspopup="dialog" aria-label="Beispiel Paket ansehen"><span class="hebe"><img src="img/ikon-paket.webp" data-film="img/film-paket.webp" alt="" width="84" height="84"></span><span class="name">Paket</span></button>
-        </div>
-      </div>
-      <div class="gruppe gruppe-eng">
-        <p class="steuer">Nur die Steuererklärung bleibt bei dir.</p>
-        <p class="satz">Polpino gibt sich nie als Mensch aus, und ohne dein Ja ruft er niemanden an. Die Beta startet bald in der Schweiz.</p>
-      </div>
-      <a class="weiter" href="https://wa.me/41445055667?text=Hey%20Polpino%2C%20ich%20will%20auf%20die%20Warteliste%21%20%F0%9F%90%99" rel="noopener"><img src="img/ikon-chat.webp" alt="" width="40" height="40">Schreib Polpino <svg aria-hidden="true" width="9" height="16" viewBox="0 0 9 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1.5 3l5 5-5 5"/></svg></a>
+  <main id="inhalt" class="inhalt">
+    <h1 class="titel">Ein Kontakt in WhatsApp, <em>der für dich telefoniert.</em></h1>
+    <div class="linie" aria-hidden="true"></div>
+    <p class="satz satz-eins">Polpino ist eine KI-Assistenz. Du schreibst, was du brauchst. Polpino ruft an, bleibt dran und meldet sich mit dem Ergebnis.</p>
+    <div class="frage-zeile">
+      <h2 class="frage">Acht Arme. Was darf Polpino erledigen?</h2>
+      <p class="tipp"><span class="nur-handy">Tipp an und schau zu.</span><span class="nur-desktop">Fahr mit der Maus drüber oder tipp an.</span></p>
     </div>
+    <div class="reihe" id="reihe">
+      <button type="button" class="arm" data-arm="0"><span class="arm-bild"><img src="img/ikon-termin.webp" alt="" width="240" height="240"></span><span class="arm-name">Termin holen</span></button>
+      <button type="button" class="arm" data-arm="1"><span class="arm-bild"><img src="img/ikon-coiffeur.webp" alt="" width="240" height="240"></span><span class="arm-name">Absagen</span></button>
+      <button type="button" class="arm" data-arm="2"><span class="arm-bild"><img src="img/ikon-handwerker.webp" alt="" width="240" height="240"></span><span class="arm-name">Abklären</span></button>
+      <button type="button" class="arm" data-arm="3"><span class="arm-bild"><img src="img/ikon-warteschleife.webp" alt="" width="240" height="240"></span><span class="arm-name">Warteschleife</span></button>
+      <button type="button" class="arm" data-arm="4"><span class="arm-bild"><img src="img/ikon-paket.webp" alt="" width="240" height="240"></span><span class="arm-name">Auskunft</span></button>
+      <button type="button" class="arm" data-arm="5"><span class="arm-bild"><img src="img/ikon-hotline.webp" alt="" width="240" height="240"></span><span class="arm-name">Dranbleiben</span></button>
+      <button type="button" class="arm" data-arm="6"><span class="arm-bild"><img src="img/ikon-rueckruf.webp" alt="" width="240" height="240"></span><span class="arm-name">Rückruf</span></button>
+      <button type="button" class="arm" data-arm="7"><span class="arm-bild"><img src="img/ikon-foto.webp" alt="" width="240" height="240"></span><span class="arm-name">Foto genügt</span></button>
+    </div>
+    <section class="buehne" id="buehne" aria-live="off" aria-labelledby="buehne-titel">
+      <div class="buehne-text">
+        <p class="arm-zahl" id="buehne-zahl"></p>
+        <h3 class="buehne-titel" id="buehne-titel"></h3>
+        <p class="buehne-unter" id="buehne-unter"></p>
+      </div>
+      <div class="buehne-chat" id="buehne-chat"></div>
+    </section>
+    <div class="trenn" aria-hidden="true"></div>
+    <p class="steuer">Nur die Steuererklärung bleibt bei dir.</p>
+    <p class="satz satz-zwei">Polpino gibt sich nie als Mensch aus, und ohne dein Ja ruft er niemanden an. Die Beta startet bald in der Schweiz.</p>
+    <a class="weiter" href="https://wa.me/41445055667?text=Hey%20Polpino%2C%20ich%20will%20auf%20die%20Warteliste%21%20%F0%9F%90%99" rel="noopener">Schreib Polpino <svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l6 6-6 6"/></svg></a>
   </main>
 
   <footer class="fuss">
@@ -83,8 +81,13 @@
   </footer>
 </div>
 
-<div class="ueber" id="ueber" role="dialog" aria-modal="true" aria-label="Beispiel" hidden>
-  <div class="buehne">
+<div class="ueber" id="ueber" role="dialog" aria-modal="true" aria-labelledby="ueber-name" hidden>
+  <div class="ueber-rahmen">
+    <div class="ueber-titel">
+      <p class="arm-zahl" id="ueber-zahl"></p>
+      <h2 class="ueber-name" id="ueber-name">Beispiel</h2>
+      <p class="ueber-unter" id="ueber-unter"></p>
+    </div>
     <div class="handy auf" id="handy">
       <div class="handy-innen">
         <div class="schirm">
