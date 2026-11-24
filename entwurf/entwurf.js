@@ -8,7 +8,9 @@ if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)')
   var wurzel = document.documentElement;
   var bewegt = wurzel.classList.contains('bewegt');
 
-  /* 1. Auftritt: Polpino schiebt die Wortmarke, danach die Schleife */
+  /* 1. Auftritt: Polpino schiebt die Wortmarke, danach die Schleife. Im HTML steht nur das ruhige Standbild;
+     die Schleife (data-schleife) wird erst nach dem Auftritt geladen. Bis sie da ist, bleibt das letzte Bild
+     des Auftritts stehen. */
   var marke = document.querySelector('.marke');
   var schleife = document.querySelector('.figur .schleife');
   if (bewegt && marke && schleife) {
@@ -18,8 +20,7 @@ if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)')
     auftritt.width = 214;
     auftritt.height = 50;
     marke.insertBefore(auftritt, marke.firstChild);
-    var schleifeSrc = schleife.getAttribute('src');
-    schleife.removeAttribute('src');
+    var schleifeSrc = schleife.getAttribute('data-schleife');
     var fertig = false;
     var abschluss = function () {
       if (fertig) return;
@@ -30,8 +31,9 @@ if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)')
         schleife.style.opacity = '1';
         auftritt.style.visibility = 'hidden';
       };
+      var ruhig = schleife.getAttribute('src');
       schleife.onload = zeigen;
-      schleife.onerror = zeigen;
+      schleife.onerror = function () { schleife.onload = schleife.onerror = null; schleife.setAttribute('src', ruhig); zeigen(); };
       schleife.setAttribute('src', schleifeSrc);
       if (schleife.complete && schleife.naturalWidth) zeigen();
     };
@@ -179,8 +181,18 @@ if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)')
     if (zuletzt) zuletzt.focus();
   }
 
+  /* Bilder des Overlays laden erst bei Interesse an einer Kachel (Hover, Fokus, Berührung) */
+  var vorgeladen = false;
+  function vorladen() {
+    if (vorgeladen) return;
+    vorgeladen = true;
+    ['img/handy.webp', 'img/polpino.webp', 'img/espresso.webp'].forEach(function (s) { var i = new Image(); i.src = s; });
+  }
   Array.prototype.forEach.call(document.querySelectorAll('.kachel'), function (k) {
     k.addEventListener('click', function () { oeffnen(k.getAttribute('data-bsp'), k); });
+    k.addEventListener('pointerenter', vorladen);
+    k.addEventListener('focus', vorladen);
+    k.addEventListener('touchstart', vorladen, { passive: true });
   });
   if (ueber) {
     ueber.addEventListener('click', function (e) { if (e.target === ueber) schliessen(); });

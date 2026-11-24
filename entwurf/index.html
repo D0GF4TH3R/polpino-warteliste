@@ -30,10 +30,7 @@
   <header class="kopf">
     <div class="marke-zeile">
       <div class="figur" data-auftritt aria-hidden="true">
-        <picture>
-          <source media="(prefers-reduced-motion: reduce)" srcset="img/polpino-ruhe.webp">
-          <img class="schleife" src="img/polpino-schleife.webp" width="50" height="50" alt="">
-        </picture>
+        <img class="schleife" src="img/polpino-ruhe.webp" data-schleife="img/polpino-schleife.webp" width="50" height="50" alt="">
       </div>
       <a class="marke" href="./" aria-label="Polpino Startseite"><img class="logo" src="img/polpino-logo.svg" alt="polpino" width="79" height="28"></a>
     </div>
@@ -90,10 +87,10 @@
   <div class="buehne">
     <div class="handy auf" id="handy">
       <div class="handy-innen">
-        <img src="img/handy.webp" alt="" width="300" height="577">
+        <img src="img/handy.webp" alt="" width="300" height="577" loading="lazy">
         <div class="schirm">
           <div class="chat-kopf">
-            <span class="chat-bild"><img src="img/polpino.webp" alt="" width="24" height="24"></span>
+            <span class="chat-bild"><img src="img/polpino.webp" alt="" width="24" height="24" loading="lazy"></span>
             <span class="chat-name">Polpino<span>KI-Assistenz</span></span>
           </div>
           <div class="verlauf" id="verlauf" aria-live="polite"></div>
