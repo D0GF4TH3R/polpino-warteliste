@@ -13,6 +13,9 @@ html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body { margin: 0; color: var(--tinte); font-family: var(--sans); background: #F5F5F2 url("img/papier.webp") repeat; background-size: 256px 256px; }
 a { color: var(--tinte); }
 a:hover { color: var(--rauchblau); }
+.skip { position: absolute; left: 16px; top: -60px; z-index: 60; padding: 8px 16px; border-radius: 4px; background: var(--tinte); color: #FAFAF8; }
+.skip:focus { top: 16px; }
+.skip:hover { color: #FAFAF8; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 .seite { container-type: inline-size; position: relative; min-height: 100vh; min-height: 100dvh; padding: clamp(8px, 1.8vh, 20px) 24px clamp(4px, 1vh, 12px); display: flex; flex-direction: column; }
@@ -46,6 +49,7 @@ h1 em { font-style: italic; font-weight: 700; color: var(--rauchblau); }
 .satz { margin: 0; font-family: var(--serif); font-size: min(clamp(17px, 14px + 0.7cqw, 23px), 2.5vh); line-height: 1.38; letter-spacing: -0.005em; }
 .frage { margin: 0; font-family: var(--serif); font-weight: 700; font-size: min(clamp(20px, 16px + 0.9cqw, 28px), 3.3vh); line-height: 1.2; }
 .steuer { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 600; color: var(--rauchblau); font-size: min(clamp(18px, 15px + 0.6cqw, 22px), 2.6vh); line-height: 1.3; }
+.tipp { margin: 0; font-family: var(--sans); font-size: 14px; line-height: 20px; color: var(--leise); }
 .weiter { align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 17px; line-height: 22px; font-weight: 600; text-decoration-thickness: 2px; text-decoration-color: var(--lila); text-underline-offset: 0.24em; }
 .weiter img { width: 40px; height: 40px; display: block; }
 

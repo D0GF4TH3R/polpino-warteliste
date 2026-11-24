@@ -92,7 +92,7 @@
     var d = el('div', 'kalender auf');
     d.innerHTML = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#3D5A6D" stroke-width="1.5"><rect x="2" y="3.5" width="14" height="12" rx="1.5"></rect><path d="M2 7h14M6 2v3M12 2v3M6.5 11l1.8 1.8 3.4-3.6"></path></svg>';
     var t = el('div');
-    t.appendChild(el('b', '', 'Steht im Kalender'));
+    t.appendChild(el('b', '', 'Termin zum Antippen'));
     t.appendChild(el('span', '', eintrag));
     d.appendChild(t);
     return d;
@@ -132,7 +132,7 @@
       function () { verlauf.appendChild(blase('p', 'Mach ich, ich ruf gleich an.', '09:12')); },
       function () { verlauf.appendChild(status); },
       function () {
-        if (b.warte) { verlauf.insertBefore(espresso, status); statusText.textContent = '22 Min. Warteschleife, Polpino bleibt dran'; }
+        if (b.warte) { verlauf.insertBefore(espresso, status); statusText.textContent = '8 Min. Warteschleife, Polpino bleibt dran'; }
         else statusText.textContent = 'Im Gespräch mit ' + b.ziel;
       },
       function () {
