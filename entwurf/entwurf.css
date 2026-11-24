@@ -79,14 +79,14 @@ html.bewegt .kachel .hebe img { visibility: hidden; }
 html.bewegt.los .kachel .hebe img { visibility: visible; }
 
 /* Konfetti */
-.konf { position: absolute; left: var(--l); top: var(--t); display: block; pointer-events: none; }
-/* Ab 1100 px: drei Stücke links, drei rechts der Spalte, mindestens 48 px Luft zum Text */
+/* Konfetti nur ab 1100 px: drei Stücke links, drei rechts der Spalte, mindestens 48 px Luft zum Text */
+.konf { position: absolute; top: var(--t); display: none; pointer-events: none; }
 @container (min-width: 1100px) {
-  .konf-r { left: calc(50% + 280px + 48px + var(--d)); top: var(--t2); }
-  .konf-l { left: auto; right: calc(50% + 280px + 48px + var(--d)); top: var(--t2); }
+  .konf { display: block; }
+  .konf-r { left: calc(50% + 280px + 48px + var(--d)); }
+  .konf-l { right: calc(50% + 280px + 48px + var(--d)); }
 }
 .konf i { display: block; width: 100%; height: 100%; box-shadow: 0 1px 2px color-mix(in srgb, var(--tinte) 18%, transparent), 0 4px 10px color-mix(in srgb, var(--tinte) 6%, transparent); background-image: linear-gradient(135deg, color-mix(in srgb, var(--karte) 18%, transparent), color-mix(in srgb, var(--tinte) 8%, transparent)); }
-@container (max-width: 760px) { .konf { display: none; } }
 @media (max-height: 560px) { .konf { display: none; } }
 @keyframes fall { 0% { opacity: 0; transform: translateY(-60px) rotate(140deg); } 70% { opacity: 1; } 100% { opacity: 1; transform: none; } }
 html.bewegt .konf { opacity: 0; animation: none; }
