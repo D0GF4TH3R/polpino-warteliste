@@ -53,7 +53,7 @@ html.lauf .marke .auftritt { opacity: 1; }
 
 /* Inhalt */
 main { position: relative; flex-grow: 1; margin-top: 16px; display: flex; align-items: stretch; gap: 40px 96px; }
-.spalte { position: relative; flex: 0 1 560px; min-width: 0; display: flex; flex-direction: column; justify-content: space-evenly; gap: 16px; padding: 4px 0 12px; }
+.spalte { position: relative; flex: 0 1 560px; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; padding: 4px 0 12px; }
 @container (min-width: 900px) { .spalte { justify-content: flex-start; gap: 24px; } }
 @container (min-width: 1100px) { main { justify-content: center; } }
 .gruppe { display: flex; flex-direction: column; gap: 12px; }
@@ -170,6 +170,9 @@ html.bewegt .linie { animation: linie .7s cubic-bezier(.3, .7, .3, 1) .15s both;
   .seite { padding: clamp(8px, 1.8vh, 20px) 24px clamp(4px, 1vh, 12px); }
   main { margin-top: clamp(6px, 2.4vh, 44px); }
   .spalte { gap: 0; padding: 0.5vh 0 1.5vh; }
+  /* Unter 900 px Containerbreite: etwas mehr Luft vor «Was darf Polpino erledigen?»; space-between lässt unter dem Knopf kein Loch */
+  .gruppe-frage { margin-top: 12px; }
+  @container (min-width: 900px) { .gruppe-frage { margin-top: 0; } }
   @container (min-width: 900px) { .spalte { gap: clamp(14px, 2.6vh, 30px); } }
   .gruppe { gap: clamp(6px, 1.3vh, 16px); }
   .gruppe-eng { gap: clamp(4px, 1vh, 12px); }
