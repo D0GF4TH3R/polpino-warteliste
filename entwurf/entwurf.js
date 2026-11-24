@@ -1,5 +1,8 @@
+if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('bewegt');
+
 /* Polpino Startseite, Entwurf: Auftritt der Figur, Faltfilme der Kacheln, Papierhandy mit Beispielchat.
-   Ohne Skript oder mit reduzierter Bewegung bleibt alles sichtbar und ruhig. */
+   Ohne Skript oder mit reduzierter Bewegung bleibt alles sichtbar und ruhig: Die Klasse bewegt setzt nur
+   die erste Zeile dieser Datei. Fällt die Datei aus, gilt der ruhige Zustand. */
 (function () {
   'use strict';
   var wurzel = document.documentElement;
@@ -110,6 +113,9 @@
     return d;
   }
 
+  function massstab() {
+    if (handy && !ueber.hidden) handy.style.setProperty('--s', String(handy.offsetHeight / 577));
+  }
   function oeffnen(key, knopf) {
     var b = B[key];
     if (!b || !ueber) return;
@@ -118,6 +124,8 @@
     verlauf.innerHTML = '';
     ueber.setAttribute('aria-label', 'Beispiel ' + b.name + ': so erledigt Polpino den Auftrag');
     ueber.hidden = false;
+    wurzel.style.overflow = 'hidden';
+    massstab();
     handy.classList.remove('auf'); void handy.offsetWidth; handy.classList.add('auf');
     zu.focus();
 
@@ -149,6 +157,7 @@
   function schliessen() {
     uhren.forEach(window.clearTimeout); uhren = [];
     if (ueber) ueber.hidden = true;
+    wurzel.style.overflow = '';
     if (zuletzt) zuletzt.focus();
   }
 
@@ -158,6 +167,7 @@
   if (ueber) {
     ueber.addEventListener('click', function (e) { if (e.target === ueber) schliessen(); });
     zu.addEventListener('click', schliessen);
+    window.addEventListener('resize', massstab);
     document.addEventListener('keydown', function (e) {
       if (ueber.hidden) return;
       if (e.key === 'Escape') schliessen();
