@@ -46,6 +46,10 @@ html.lauf .marke .logo { opacity: 0; }
 html.lauf .marke .auftritt { opacity: 1; }
 .konto { display: flex; gap: 24px; font-size: 15px; line-height: 20px; font-weight: 500; }
 .konto a { display: inline-block; padding: 12px 0; text-underline-offset: 3px; }
+/* Herkunft rechts im Kopf: Schweizerfahne nach Wappenschutzgesetz, Anhang 2 (Feld 32, Kreuz 20, Arme 6 breit und 7 lang, Rot #FF0000).
+   Bewusst klein und das einzige Rot der Seite. Nie an der Figur, nie in der Wortmarke, nie als Wappen im Dreieckschild. */
+.herkunft { flex: none; display: inline-flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; line-height: 20px; color: var(--leise); white-space: nowrap; }
+.herkunft .kreuz { flex: none; display: block; width: 14px; height: 14px; }
 
 /* Inhalt, Handy-Muster: eine Spalte, Blockabstand 22 px, höchstens 560 px breit */
 .inhalt { display: flex; flex-direction: column; gap: 22px; max-width: 560px; }
@@ -107,6 +111,8 @@ html.bewegt .linie { animation: linie .7s cubic-bezier(.3, .7, .3, 1) .15s both;
   .seite { padding: 36px clamp(24px, 5vw, 72px) 44px; gap: 32px; }
   .kopf, .inhalt, .fuss { width: 100%; max-width: 1120px; margin-inline: auto; }
   .marke-zeile { zoom: 1.4; }
+  .herkunft { font-size: 14px; }
+  .herkunft .kreuz { width: 16px; height: 16px; }
   .nur-handy { display: none; }
   .nur-desktop { display: inline; }
 
