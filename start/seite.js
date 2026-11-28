@@ -50,9 +50,9 @@ document.documentElement.classList.add('js');
 
   /* 2. Die acht Arme: einzige Datenquelle für Overlay (Handy) und Bühne (Desktop). Reihenfolge = Knöpfe data-arm 0 bis 7.
      Kachelwort und Icon stehen im HTML (sichtbar auch ohne Skript), alles andere hier.
-     du: deine Nachricht (fehlt bei Arm 7) · foto: Briefbild in deiner Blase · ack: Polpinos Antwort
+     du: deine Nachricht (darf fehlen) · foto: Briefbild in deiner Blase · ack: Polpinos Antwort
      laeuft / danach: Statuszeile während und nach dem Anruf · fett + rest: Ergebnis · karte: «Termin zum Antippen»
-     frage + ja: Schluss als Frage mit Knöpfen statt «Alles paletti.» · kurz: Wortlaut der Bühne am Desktop */
+     frage + ja: Schluss als Frage mit Knöpfen statt «Alles paletti.» · kurz: Wortlaut der Bühne (Handy und Desktop) */
   var ARME = [
     { titel: 'Termin holen', unter: 'Zahnarzt, Coiffeur, Garage oder der Tisch am Freitag.',
       du: 'Zahnarzt nächste Woche, gern vormittags.', ack: 'Mach ich, ich ruf gleich an.',
@@ -62,29 +62,29 @@ document.documentElement.classList.add('js');
       du: 'Donnerstag klappt nicht. Verschieb den Coiffeur auf nächste Woche.', ack: 'Mach ich.',
       laeuft: 'Ruft den Coiffeur an', fett: 'Mittwoch 17:30', rest: 'statt Donnerstag. Der alte Termin ist abgesagt.', karte: 'Mi 17:30, Coiffeur',
       kurz: { status: 'Polpino ruft den Coiffeur an', ergebnis: 'Mittwoch 17:30 statt Donnerstag. Der alte Termin ist abgesagt.' } },
-    { titel: 'Abklären, wer Zeit hat', unter: 'Du fragst einmal, Polpino ruft mehrere Betriebe an.',
+    { titel: 'Handwerker finden', unter: 'Du fragst einmal, Polpino ruft mehrere Betriebe an.',
       du: 'Die Heizung tropft. Wer kann diese Woche kommen?', ack: 'Ich klär das ab und ruf drei Installateure an.',
       laeuft: 'Ruft Installateure an, 2 von 3', fett: 'Keller kann Donnerstag um 8.', rest: 'Müller erst am Montag, Brunner ruft zurück.',
       frage: 'Soll ich den Termin bei Keller fixieren?', ja: 'Ja, fixieren',
       kurz: { status: 'Polpino ruft Installateure an, 2 von 3', ergebnis: 'Keller kann Donnerstag um 8. Müller erst am Montag, Brunner ruft zurück. Soll ich den Termin bei Keller fixieren?' } },
-    { titel: 'Warteschleife aussitzen', unter: 'Er wartet, du machst weiter.',
+    { titel: 'Hotline aussitzen', unter: 'Er wartet in der Schleife, du machst weiter.',
       du: 'Mein Internet spinnt. Meld das der Hotline.', ack: 'Mach ich. Die Warteschleife übernehme ich.',
       laeuft: 'In der Warteschleife, Position 4', fett: 'Störung gemeldet.', rest: 'Ein Techniker meldet sich bis morgen Mittag.',
       kurz: { status: 'In der Warteschleife, Position 4', ergebnis: 'Störung gemeldet. Ein Techniker meldet sich bis morgen Mittag.' } },
-    { titel: 'Auskunft holen', unter: 'Offen? Vorrätig? Fertig? Unterwegs?',
+    { titel: 'Paket suchen', unter: 'Oder fragen, ob offen, vorrätig oder fertig ist.',
       du: 'Wo steckt mein Paket?', ack: 'Ich frag nach.',
       laeuft: 'Ruft die Post an', fett: 'Liegt in der Filiale am Bahnhof.', rest: 'Abholen kannst du es bis Samstag.',
       kurz: { status: 'Polpino ruft die Post an', ergebnis: 'Liegt in der Filiale am Bahnhof. Abholen kannst du es bis Samstag.' } },
-    { titel: 'Dranbleiben', unter: 'Niemand nimmt ab? Polpino probiert es später nochmal.',
+    { titel: 'Nochmals anrufen', unter: 'Niemand nimmt ab? Polpino schlägt dir einen zweiten Versuch vor.',
       du: 'Frag im Veloladen, ob mein Velo fertig ist.', ack: 'Mach ich, ich ruf gleich an.',
       laeuft: 'Ruft den Veloladen an', danach: 'Niemand nimmt ab', fett: 'Der Laden öffnet um 9.', rest: 'Ich bleib dran.',
       frage: 'Soll ich um 9 nochmal anrufen?', ja: 'Ja, um 9',
       kurz: { status: 'Niemand nimmt ab, der Laden öffnet um 9', ergebnis: 'Soll ich um 9 nochmal anrufen? Ein Daumen genügt.' } },
-    { titel: 'Rückruf annehmen', unter: 'Die Praxis ruft zurück, du sitzt im Meeting.',
-      ack: 'Die Praxis ruft gerade zurück. Ich geh ran.',
-      laeuft: 'Nimmt den Rückruf an', fett: 'Dienstag 10 Uhr', rest: 'passt der Praxis.', karte: 'Di 10:00, Praxis Dr. Weber',
-      kurz: { status: 'Polpino nimmt den Rückruf an', ergebnis: 'Dienstag 10 Uhr passt der Praxis. Der Termin zum Antippen kommt gleich.' } },
-    { titel: 'Foto genügt', unter: 'Brief oder Visitenkarte knipsen, Polpino liest und ruft an.',
+    { titel: 'Nummer finden', unter: 'Du nennst den Namen, Polpino sucht die Nummer selbst.',
+      du: 'Tisch für vier am Freitag um 19 Uhr, im Restaurant Sonne.', ack: 'Ich such die Nummer und ruf an.',
+      laeuft: 'Ruft das Restaurant Sonne an', fett: 'Freitag 19 Uhr,', rest: 'Tisch für vier ist reserviert.', karte: 'Fr 19:00, Restaurant Sonne',
+      kurz: { status: 'Polpino sucht die Nummer und ruft an', ergebnis: 'Freitag 19 Uhr, Tisch für vier ist reserviert. Der Termin zum Antippen kommt gleich.' } },
+    { titel: 'Foto genügt', unter: 'Brief knipsen oder Sprachnachricht schicken, Polpino versteht beides.',
       foto: true, du: 'Die wollen einen Termin für den Zählerwechsel.', ack: 'Gelesen. Ich ruf die Stadtwerke an.',
       laeuft: 'Ruft die Stadtwerke an', fett: 'Donnerstag, 9 bis 12 Uhr', rest: 'wäre frei.',
       frage: 'Passt das? Dann sag ich zu.', ja: 'Ja, zusagen',
@@ -220,7 +220,8 @@ document.documentElement.classList.add('js');
     ['start/img/handy.webp', 'start/img/polpino.webp'].forEach(function (s) { var b = new Image(); b.src = s; });
   }
 
-  /* 4. Desktop: Bühne mit Kurz-Chat, Auswahl per Maus, Fokus oder Klick, Rundgang bis zur ersten Eingabe */
+  /* 4. Bühne mit Kurz-Chat, Handy und Desktop: Rundgang bis zur ersten Eingabe. Desktop wählt per Maus, Fokus oder Klick,
+     am Handy zeigt ein Tippen den Arm in der Bühne und öffnet das Overlay. */
   var buehne = document.getElementById('buehne');
   var chat = document.getElementById('buehne-chat');
   var gewaehlt = -1;
@@ -239,7 +240,7 @@ document.documentElement.classList.add('js');
     gewaehlt = i;
     var a = ARME[i];
     buehnenUhren.forEach(window.clearTimeout); buehnenUhren = [];
-    knoepfe.forEach(function (k, n) { k.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
+    if (desktop.matches) knoepfe.forEach(function (k, n) { k.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
     document.getElementById('buehne-zahl').textContent = zahl(i);
     document.getElementById('buehne-titel').textContent = a.titel;
     document.getElementById('buehne-unter').textContent = a.unter;
@@ -255,12 +256,7 @@ document.documentElement.classList.add('js');
     if (!bewegt) { schritte.forEach(function (s) { s(); }); return; }
     [350, 1400, 3200].forEach(function (t, n) { buehnenUhren.push(window.setTimeout(schritte[n], t)); });
     /* Rundgang: alle 7.4 s ein Arm weiter, bis zur ersten Eingabe */
-    buehnenUhren.push(window.setTimeout(function () { if (!beruehrt && desktop.matches) waehlen((i + 1) % ARME.length, false); }, 7400));
-  }
-  function buehneStoppen() {
-    buehnenUhren.forEach(window.clearTimeout); buehnenUhren = [];
-    gewaehlt = -1;
-    knoepfe.forEach(function (k) { k.removeAttribute('aria-pressed'); });
+    buehnenUhren.push(window.setTimeout(function () { if (!beruehrt) waehlen((i + 1) % ARME.length, false); }, 7400));
   }
 
   /* 5. Umschalten zwischen Handy und Desktop */
@@ -270,8 +266,8 @@ document.documentElement.classList.add('js');
       knoepfe.forEach(function (k) { k.removeAttribute('aria-haspopup'); });
       if (gewaehlt < 0) waehlen(0, false);
     } else {
-      buehneStoppen();
-      knoepfe.forEach(function (k) { k.setAttribute('aria-haspopup', 'dialog'); });
+      knoepfe.forEach(function (k) { k.removeAttribute('aria-pressed'); k.setAttribute('aria-haspopup', 'dialog'); });
+      if (gewaehlt < 0) waehlen(0, false);
     }
   }
   if (desktop.addEventListener) desktop.addEventListener('change', modus); else desktop.addListener(modus);
@@ -279,7 +275,7 @@ document.documentElement.classList.add('js');
 
   knoepfe.forEach(function (k) {
     var i = +k.getAttribute('data-arm');
-    k.addEventListener('click', function () { if (desktop.matches) waehlen(i, true); else oeffnen(i, k); });
+    k.addEventListener('click', function () { waehlen(i, true); if (!desktop.matches) oeffnen(i, k); });
     k.addEventListener('pointerenter', function (e) { if (desktop.matches && e.pointerType === 'mouse') waehlen(i, true); else vorladen(); });
     k.addEventListener('focus', function () { if (desktop.matches) waehlen(i, true); else vorladen(); });
     k.addEventListener('touchstart', vorladen, { passive: true });

@@ -1,4 +1,5 @@
 /* Polpino Startseite «acht Arme» (aus dem Entwurf vom 24.11.2026 übernommen). Quelle: Mockup «acht Arme» (Handy und Desktop), von Dominic abgenommen.
+   Überarbeitung 28.11.2026: Bühne auch am Handy, drei Schritte, Knopf oben und unten.
    Handy-Muster unter 900 px (Raster 4 × 2, Origami-Overlay), Desktop ab 900 px (Reihe mit Dock-Effekt, Bühne darunter). */
 @font-face { font-family: "Fraunces Soft"; font-style: normal; font-weight: 400 900; font-display: swap; src: url("../assets/fonts/fraunces-soft-latin.woff2") format("woff2-variations"); }
 @font-face { font-family: "Fraunces Soft"; font-style: italic; font-weight: 600 900; font-display: swap; src: url("../assets/fonts/fraunces-italic.woff2") format("woff2-variations"); }
@@ -61,6 +62,30 @@ html.lauf .marke .auftritt { opacity: 1; }
 .weiter { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: underline; text-decoration-color: var(--lila); text-decoration-thickness: 2px; text-underline-offset: 6px; }
 .weiter svg { flex: none; }
 .buehne, .trenn { display: none; }
+.weiter-oben { margin-top: -6px; }
+
+/* Bühne mit Kurz-Chat, auch am Handy: zeigt ohne Tippen ein Beispiel; feste Mindesthöhe, damit nichts springt */
+html.js .buehne { display: flex; flex-direction: column; gap: 14px; min-height: 306px; padding-top: 20px; border-top: 1px solid var(--linie); }
+/* Sehr schmal brechen die Blasen öfter um (Arm 2 braucht bei 320 px 333 px) */
+@media (max-width: 359.98px) { html.js .buehne { min-height: 340px; } }
+.buehne-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.buehne-titel { margin: 0; font-family: var(--serif); font-weight: 800; font-size: 24px; line-height: 1.15; }
+.buehne-unter { margin: 0; font-size: 15px; line-height: 21px; color: var(--leise); }
+.buehne-chat { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.kurz-blase { align-self: flex-start; max-width: 86%; margin: 0; padding: 8px 12px; border: 1px solid var(--linie); border-radius: 8px; background: var(--karte); font-size: 15px; line-height: 21px; }
+.kurz-du { align-self: flex-end; background: var(--blase-hell); }
+.kurz-anhang { display: block; font-size: 13px; line-height: 18px; color: var(--leise); }
+.kurz-status { align-self: flex-start; display: flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; line-height: 20px; color: var(--leise); }
+.kurz-punkt { flex: none; width: 8px; height: 8px; border-radius: 999px; background: var(--lampe); animation: puls 1s ease-in-out infinite; }
+.kurz-punkt.fertig { background: var(--seegruen); animation: none; }
+.rein { animation: rein .35s ease-out both; }
+
+/* So einfach geht's: drei Schritte, Ziffern im Kreis */
+.schritte { display: flex; flex-direction: column; gap: 14px; padding-top: 20px; border-top: 1px solid var(--linie); }
+.schritt-liste { margin: 0; padding: 0; list-style: none; counter-reset: schritt; display: flex; flex-direction: column; gap: 16px; }
+.schritt-liste li { counter-increment: schritt; position: relative; padding-left: 42px; font-size: 15px; line-height: 21px; color: var(--leise); }
+.schritt-liste li::before { content: counter(schritt); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border: 1.5px solid var(--rauchblau); border-radius: 999px; font-family: var(--serif); font-weight: 700; font-size: 15px; line-height: 25px; text-align: center; color: var(--rauchblau); }
+.schritt-liste b { display: block; margin-bottom: 2px; font-family: var(--serif); font-weight: 700; font-size: 18px; line-height: 26px; color: var(--tinte); }
 
 /* Die acht Arme, Handy: Raster 4 × 2 */
 .reihe { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 4px; }
@@ -91,10 +116,11 @@ html.bewegt .linie { animation: linie .7s cubic-bezier(.3, .7, .3, 1) .15s both;
 
   /* Drei Spalten wie die Flex-Verteilung im Mockup bei 1'120 px: Titel 618 | Satz 438, unten kursive Zeile 475 | Satz 581 */
   .inhalt { display: grid; grid-template-columns: minmax(0, 475fr) minmax(0, 79fr) minmax(0, 438fr); column-gap: 64px; row-gap: 0;
-    grid-template-areas: "titel titel satz" "titel titel weiter" "linie linie linie" "frage frage frage" "reihe reihe reihe" "buehne buehne buehne" "trenn trenn trenn" "steuer satz2 satz2"; }
+    grid-template-areas: "titel titel satz" "titel titel weiter" "linie linie linie" "frage frage frage" "reihe reihe reihe" "buehne buehne buehne" "schritte schritte schritte" "trenn trenn trenn" "steuer satz2 satz2"; }
   .titel { grid-area: titel; align-self: end; font-size: clamp(38px, 4.4vw, 54px); line-height: 1.05; text-wrap: wrap; }
   .satz-eins { grid-area: satz; align-self: end; font-size: 21px; line-height: 1.35; }
-  .weiter { grid-area: weiter; align-self: end; margin-top: 12px; font-size: 20px; }
+  .weiter-oben { grid-area: weiter; align-self: end; margin-top: 12px; font-size: 20px; }
+  .weiter-unten { display: none; }
   .linie { grid-area: linie; margin-top: 32px; }
   .frage-zeile { grid-area: frage; margin-top: 32px; flex-direction: row; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 24px; }
   .frage { font-size: 28px; line-height: 1.2; }
@@ -114,22 +140,24 @@ html.bewegt .linie { animation: linie .7s cubic-bezier(.3, .7, .3, 1) .15s both;
   .steuer { grid-area: steuer; display: block; margin-top: 24px; font-size: 26px; line-height: 1.25; }
 
   /* Bühne: links Arm und Titel, rechts der Kurz-Chat; feste Mindesthöhe, damit nichts springt */
-  html.js .buehne { grid-area: buehne; margin-top: 32px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px 64px; min-height: 216px; padding-top: 28px; border-top: 1px solid var(--linie); }
+  html.js .buehne { grid-area: buehne; margin-top: 32px; flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 20px 64px; min-height: 216px; padding-top: 28px; }
   /* Unter 1'100 px ist die Chatspalte schmaler, die längste Ergebnisblase (Arm 3) braucht dann mehr Höhe */
   @media (max-width: 1099.98px) { html.js .buehne { min-height: 240px; } }
   .trenn { grid-area: trenn; display: block; margin-top: 32px; height: 1px; background: var(--linie); }
-  .buehne-text { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .buehne-text { flex: 1 1 320px; gap: 6px; }
   .buehne .arm-zahl { font-size: 13px; line-height: 18px; }
-  .buehne-titel { margin: 0; font-family: var(--serif); font-weight: 800; font-size: 36px; line-height: 1.1; }
-  .buehne-unter { margin: 0; font-size: 19px; line-height: 28px; color: var(--leise); }
-  .buehne-chat { flex: 1.3 1 380px; min-width: 0; max-width: 520px; display: flex; flex-direction: column; gap: 10px; }
-  .kurz-blase { align-self: flex-start; max-width: 82%; margin: 0; padding: 9px 14px; border: 1px solid var(--linie); border-radius: 8px; background: var(--karte); font-size: 16px; line-height: 23px; }
-  .kurz-du { align-self: flex-end; background: var(--blase-hell); }
-  .kurz-anhang { display: block; font-size: 13px; line-height: 18px; color: var(--leise); }
-  .kurz-status { align-self: flex-start; display: flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; line-height: 20px; color: var(--leise); }
-  .kurz-punkt { flex: none; width: 8px; height: 8px; border-radius: 999px; background: var(--lampe); animation: puls 1s ease-in-out infinite; }
-  .kurz-punkt.fertig { background: var(--seegruen); animation: none; }
-  .rein { animation: rein .35s ease-out both; }
+  .buehne-titel { font-size: 36px; line-height: 1.1; }
+  .buehne-unter { font-size: 19px; line-height: 28px; }
+  .buehne-chat { flex: 1.3 1 380px; max-width: 520px; gap: 10px; }
+  .kurz-blase { max-width: 82%; padding: 9px 14px; font-size: 16px; line-height: 23px; }
+  .kurz-status { font-size: 14px; }
+
+  /* Drei Schritte nebeneinander */
+  .schritte { grid-area: schritte; margin-top: 32px; padding-top: 28px; gap: 20px; }
+  .schritt-liste { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+  .schritt-liste li { padding-left: 46px; font-size: 16px; line-height: 24px; }
+  .schritt-liste li::before { width: 32px; height: 32px; font-size: 17px; line-height: 29px; }
+  .schritt-liste b { font-size: 20px; line-height: 28px; }
 
   .fuss { gap: 6px 24px; }
 }

@@ -47,19 +47,20 @@
   <main id="inhalt" class="inhalt">
     <h1 class="titel">Ein Kontakt in WhatsApp, <em>der für dich telefoniert.</em></h1>
     <div class="linie" aria-hidden="true"></div>
-    <p class="satz satz-eins">Polpino ist eine KI-Assistenz. Du schreibst, was du brauchst. Polpino ruft an, bleibt dran und meldet sich mit dem Ergebnis.</p>
+    <p class="satz satz-eins">Polpino ist eine KI-Assistenz für die Anrufe, die niemand gern macht. Du schreibst einen Satz, Polpino ruft an und schickt dir das Ergebnis.</p>
+    <a class="weiter weiter-oben" href="https://wa.me/41445055667?text=Hey%20Polpino%2C%20ich%20will%20auf%20die%20Warteliste%21%20%F0%9F%90%99" rel="noopener">Per WhatsApp auf die Warteliste <svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l6 6-6 6"/></svg></a>
     <div class="frage-zeile">
       <h2 class="frage">Acht Arme. Was darf Polpino erledigen?</h2>
       <p class="tipp"><span class="nur-handy">Tipp an und schau zu.</span><span class="nur-desktop">Fahr mit der Maus drüber oder tipp an.</span></p>
     </div>
     <div class="reihe" id="reihe">
       <button type="button" class="arm" data-arm="0"><span class="arm-bild"><img src="start/img/ikon-termin.webp" alt="" width="240" height="240"></span><span class="arm-name">Termin holen</span></button>
-      <button type="button" class="arm" data-arm="1"><span class="arm-bild"><img src="start/img/ikon-coiffeur.webp" alt="" width="240" height="240"></span><span class="arm-name">Absagen</span></button>
-      <button type="button" class="arm" data-arm="2"><span class="arm-bild"><img src="start/img/ikon-handwerker.webp" alt="" width="240" height="240"></span><span class="arm-name">Abklären</span></button>
-      <button type="button" class="arm" data-arm="3"><span class="arm-bild"><img src="start/img/ikon-warteschleife.webp" alt="" width="240" height="240"></span><span class="arm-name">Warteschleife</span></button>
-      <button type="button" class="arm" data-arm="4"><span class="arm-bild"><img src="start/img/ikon-paket.webp" alt="" width="240" height="240"></span><span class="arm-name">Auskunft</span></button>
-      <button type="button" class="arm" data-arm="5"><span class="arm-bild"><img src="start/img/ikon-hotline.webp" alt="" width="240" height="240"></span><span class="arm-name">Dranbleiben</span></button>
-      <button type="button" class="arm" data-arm="6"><span class="arm-bild"><img src="start/img/ikon-rueckruf.webp" alt="" width="240" height="240"></span><span class="arm-name">Rückruf</span></button>
+      <button type="button" class="arm" data-arm="1"><span class="arm-bild"><img src="start/img/ikon-coiffeur.webp" alt="" width="240" height="240"></span><span class="arm-name">Verschieben</span></button>
+      <button type="button" class="arm" data-arm="2"><span class="arm-bild"><img src="start/img/ikon-handwerker.webp" alt="" width="240" height="240"></span><span class="arm-name">Handwerker finden</span></button>
+      <button type="button" class="arm" data-arm="3"><span class="arm-bild"><img src="start/img/ikon-warteschleife.webp" alt="" width="240" height="240"></span><span class="arm-name">Hotline aussitzen</span></button>
+      <button type="button" class="arm" data-arm="4"><span class="arm-bild"><img src="start/img/ikon-paket.webp" alt="" width="240" height="240"></span><span class="arm-name">Paket suchen</span></button>
+      <button type="button" class="arm" data-arm="5"><span class="arm-bild"><img src="start/img/ikon-hotline.webp" alt="" width="240" height="240"></span><span class="arm-name">Nochmals anrufen</span></button>
+      <button type="button" class="arm" data-arm="6"><span class="arm-bild"><img src="start/img/ikon-restaurant.webp" alt="" width="240" height="240"></span><span class="arm-name">Nummer finden</span></button>
       <button type="button" class="arm" data-arm="7"><span class="arm-bild"><img src="start/img/ikon-foto.webp" alt="" width="240" height="240"></span><span class="arm-name">Foto genügt</span></button>
     </div>
     <section class="buehne" id="buehne" aria-live="off" aria-labelledby="buehne-titel">
@@ -70,10 +71,18 @@
       </div>
       <div class="buehne-chat" id="buehne-chat"></div>
     </section>
+    <section class="schritte" aria-labelledby="schritte-titel">
+      <h2 class="frage" id="schritte-titel">So einfach geht’s</h2>
+      <ol class="schritt-liste">
+        <li><b>Du schreibst einen Satz.</b> Als Text, Sprachnachricht oder Foto.</li>
+        <li><b>Du tippst Ja.</b> Polpino sagt vorher, wen er anruft und was er zusagen darf.</li>
+        <li><b>Du bekommst das Ergebnis.</b> In einer Nachricht, den Termin zum Antippen. Auf Wunsch auch als Kopie an jemanden, dem du vertraust.</li>
+      </ol>
+    </section>
     <div class="trenn" aria-hidden="true"></div>
     <p class="steuer">Nur die Steuererklärung bleibt bei dir.</p>
-    <p class="satz satz-zwei">Polpino gibt sich nie als Mensch aus, und ohne dein Ja ruft er niemanden an. Die Beta startet bald in der Schweiz.</p>
-    <a class="weiter" href="https://wa.me/41445055667?text=Hey%20Polpino%2C%20ich%20will%20auf%20die%20Warteliste%21%20%F0%9F%90%99" rel="noopener">Schreib Polpino <svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l6 6-6 6"/></svg></a>
+    <p class="satz satz-zwei">Polpino gibt sich nie als Mensch aus, und ohne dein Ja ruft er niemanden an. Ein Befehl löscht alles, was er über dich weiss. Die Beta startet bald in der Schweiz.</p>
+    <a class="weiter weiter-unten" href="https://wa.me/41445055667?text=Hey%20Polpino%2C%20ich%20will%20auf%20die%20Warteliste%21%20%F0%9F%90%99" rel="noopener">Per WhatsApp auf die Warteliste <svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2l6 6-6 6"/></svg></a>
   </main>
 
   <footer class="fuss">
