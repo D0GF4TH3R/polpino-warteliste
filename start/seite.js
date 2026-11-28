@@ -56,7 +56,7 @@ document.documentElement.classList.add('js');
      frage + ja (+ nein): Schluss als Frage mit Knöpfen statt «Alles paletti.» · kurz: Wortlaut der Bühne am Desktop */
   var ARME = [
     { titel: 'Termin holen', unter: 'Sprachnachricht genügt. Polpino schaut in deinen Kalender und bucht, wo du frei hast.',
-      sprache: '0:06', kalcheck: 'Dein Kalender: Dienstag vormittag frei', du: '«Zahnarzt nächste Woche, gern vormittags.»', ack: 'Verstanden: Zahnarzt, nächste Woche vormittags. Ich schau in deinen Kalender und ruf an.',
+      sprache: '0:06', kalcheck: 'Dein Kalender: Dienstag vormittag frei', du: '«Zahnarzt nächschti Wuche, am liebschte am Morge.»', ack: 'Verstanden: «Zahnarzt nächschti Wuche, am liebschte am Morge.» Ich schau in deinen Kalender und ruf an.',
       laeuft: 'Ruft Praxis Dr. Weber an', fett: 'Dienstag 10:30', rest: 'bei Dr. Weber. Da hast du frei, also hab ich zugesagt.', karte: 'Di 10:30, Zahnarzt Dr. Weber',
       kurz: { anhang: 'Sprachnachricht, 0:06', status: 'Polpino schaut in deinen Kalender und ruft die Praxis an', ergebnis: 'Dienstag 10:30 bei Dr. Weber. Da hast du frei, also hab ich zugesagt. Der Termin zum Antippen kommt gleich.' } },
     { titel: 'Verschieben und absagen', unter: 'Der Anruf, den niemand gern macht.',
